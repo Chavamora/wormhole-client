@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,0">
+        <title>WomrholePlan | <%= title %></title>
+        <link rel="stylesheet" href="/styles.css">
+        <link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
+        
+    </head>
+
+<body>
+
+    <header>
+    <div id="navContainer">
+        <div id="navLogo">
+            <h1 id="logo">Wormhole Plan</h1>
+        </div>
+        <nav id="navBar">
+            <ul id="navList">
+                <i><a class="navListItem" href="/index"> Inicio </a></i>
+                <i><a class="navListItem" href="/users/perfil"> Mi perfil </a></i>
+                <i><a class="navListItem"  href="#"> Privacidad </a></i>
+                <i><a class="navListItem" href="/users/logout"> Cerrar sesión </a></i>
+            </ul>
+        </nav>
+    </div>
+    <img src="/img/bx-menu-alt-left.svg" class="hamburguer">
+</header>
+
+
+    <div id="tripleItemGrid">
+        <div class="sideBar">
+
+
+    <div id="search" >
+        <label for="search">Buscar amigos</label>
+        <form action="/users/search" method="POST">
+        <input type="search" id="searchInput" name="search">
+    </form>
+    </div>
+    <div id="hobbieDiv">
+        <a href="deporte.html" class="sideBarItem">Deporte</a>
+        <a href="planDeVida.html" class="sideBarItem">Plan de vida</a>
+        <a href="estudio.html" class="sideBarItem">Estudio</a>
+        <a href="hobbies.html" class="sideBarItem">Hobbies</a>
+        <a href="agenda.html" class="sideBarItem"> Agenda </a>
+        <a href="blogs.html" class="sideBarItem">publicaciones</a>
+        <a href="ruedaDeVida.html" class="sideBarItem"> Rueda de vida </a>
+            
+    </div>
+
+</div>
+
+        <div>
+
+            <div class="info">
+                <h2>Tus metas</h2>
+
+                <div class="flex-table">
+                    <div class="flex-item first">
+                        <p> Responsable </p>
+                    </div>
+                    <div class="flex-item first">
+                        <p> Prioridad </p>
+                    </div>
+                    <div class="flex-item first">
+                        <p> estado </p>
+                    </div>
+                    <div class="flex-item first">
+                        <p> fecha de inicio </p>
+                    </div>
+                    <div class="flex-item first">
+                        <p> fecha final </p>
+                    </div>
+                </div>
+                <a href="agregarMeta.html">nueva meta</a>
+
+            
+        </div>
+        </div>
+
+        <div id="rightBar">
+    <div class="container_calendar">
+        <div class="header_calendar">
+            <h1 id="text_day">00</h1>
+            <h5 id="text_month">Null</h5>
+        </div>
+        <div class="body_calendar">
+            <div class="container_details">
+                <div class="detail_1">
+                    <div class="detail">
+                        <div class="circle">
+                            <div class="column"></div>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <div class="circle">
+                            <div class="column"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail_2">
+                    <div class="detail">
+                        <div class="circle">
+                            <div class="column"></div>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <div class="circle">
+                            <div class="column"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container_change_month">
+                <button id="last_month">&lt;</button>
+                <div>
+                    <span id="text_month_02">Null</span>
+                    <span id="text_year">0000</span>
+                </div>
+                <button id="next_month">&gt;</button>
+            </div>
+            <div class="container_weedays">
+                <span class="week_days_item">DOM</span>
+                <span class="week_days_item">LUN</span>
+                <span class="week_days_item">MAR</span>
+                <span class="week_days_item">MÍE</span>
+                <span class="week_days_item">JUE</span>
+                <span class="week_days_item">VIE</span>
+                <span class="week_days_item">SÁB</span>
+            </div>
+            <div class="container_days">
+                <span class="week_days_item item_day"></span>
+                
+            </div>
+        </div>
+
+    </div>
+    <input type="text" placeholder="plantillas predeterminadas para mis frases y modelos a seguir"
+        id="plantillas">
+    <div id="">
+
+    </div>
+</div>
+
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script src="variables.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="/menu.js"></script>
+<script src="/calendario_script.js"></script>
+<script src="fetchMetaData.js"></script>
+<!-- <script src="/rueda_de_vida.js"></script> -->
+
+</body>
+
+</html>

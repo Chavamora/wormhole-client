@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,0">
+        <title>WomrholePlan | <%= title %></title>
+        <link rel="stylesheet" href="/styles.css">
+        <link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
+        
+    </head>
+    <body>
+
+        <header>
+    <div id="navContainer">
+        <div id="navLogo">
+            <h1 id="logo">Wormhole Plan</h1>
+        </div>
+        <nav id="navBar">
+            <ul id="navList">
+                <i><a class="navListItem" href="/index"> Inicio </a></i>
+                <i><a class="navListItem" href="/users/perfil"> Mi perfil </a></i>
+                <i><a class="navListItem"  href="#"> Privacidad </a></i>
+                <i><a class="navListItem" href="/users/logout"> Cerrar sesión </a></i>
+            </ul>
+        </nav>
+    </div>
+    <img src="/img/bx-menu-alt-left.svg" class="hamburguer">
+</header>
+
+            <div id="tripleItemGrid" class="p-hidden">
+                <div class="sideBar">
+
+
+    <div id="search" >
+        <label for="search">Buscar amigos</label>
+        <form action="/users/search" method="POST">
+        <input type="search" id="searchInput" name="search">
+    </form>
+    </div>
+    <div id="hobbieDiv">
+        <a href="deporte.html" class="sideBarItem">Deporte</a>
+        <a href="planDeVida.html" class="sideBarItem">Plan de vida</a>
+        <a href="estudio.html" class="sideBarItem">Estudio</a>
+        <a href="hobbies.html" class="sideBarItem">Hobbies</a>
+        <a href="agenda.html" class="sideBarItem"> Agenda </a>
+        <a href="blogs.html" class="sideBarItem">publicaciones</a>
+        <a href="ruedaDeVida.html" class="sideBarItem"> Rueda de vida </a>
+            
+    </div>
+
+</div>
+                    <div>
+<div class="info">
+
+                    
+
+                        <div class="ruedaDeVida">
+                            <h1 id="title-RuedaDeVida"> Rueda de vida</h1>
+                            <h2> ¿Cómo me encuentro? </h2>
+
+                            <canvas id="ruedaDeVida">
+
+                            </canvas>
+                        </div>
+                        <a href="/ruedaDeVida/editar">editar</a>
+                        <a href="/ruedaDeVida/editarMeta">editar  meta</a>
+
+                    </div>
+                    </div>
+
+
+                    <div id="rightBar">
+    <div class="container_calendar">
+        <div class="header_calendar">
+            <h1 id="text_day">00</h1>
+            <h5 id="text_month">Null</h5>
+        </div>
+        <div class="body_calendar">
+            <div class="container_details">
+                <div class="detail_1">
+                    <div class="detail">
+                        <div class="circle">
+                            <div class="column"></div>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <div class="circle">
+                            <div class="column"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail_2">
+                    <div class="detail">
+                        <div class="circle">
+                            <div class="column"></div>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <div class="circle">
+                            <div class="column"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container_change_month">
+                <button id="last_month">&lt;</button>
+                <div>
+                    <span id="text_month_02">Null</span>
+                    <span id="text_year">0000</span>
+                </div>
+                <button id="next_month">&gt;</button>
+            </div>
+            <div class="container_weedays">
+                <span class="week_days_item">DOM</span>
+                <span class="week_days_item">LUN</span>
+                <span class="week_days_item">MAR</span>
+                <span class="week_days_item">MÍE</span>
+                <span class="week_days_item">JUE</span>
+                <span class="week_days_item">VIE</span>
+                <span class="week_days_item">SÁB</span>
+            </div>
+            <div class="container_days">
+                <span class="week_days_item item_day"></span>
+                
+            </div>
+        </div>
+
+    </div>
+    <input type="text" placeholder="plantillas predeterminadas para mis frases y modelos a seguir"
+        id="plantillas">
+    <div id="">
+
+    </div>
+</div>
+            </div>
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+            <script src="variables.js"></script>
+            <script src="fetchRuedaDeVidaData.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="/menu.js"></script>
+<script src="/calendario_script.js"></script>
+<!-- <script src="/rueda_de_vida.js"></script> -->
+ 
+            <script>
+            
+                console.log('funcionando');
+                let crecimiento_personal = parseInt(document.querySelector('#crecimiento_personal').textContent) 
+                let negocios_estudios = parseInt(document.querySelector('#negocios_estudios').textContent)
+                let familia = parseInt(document.querySelector('#familia').textContent)
+                let salud = parseInt(document.querySelector('#salud').textContent)
+                let amigos = parseInt(document.querySelector('#amigos').textContent)
+                let recreacion_diversion = parseInt(document.querySelector('#recreacion_diversion').textContent)
+                let amor = parseInt(document.querySelector('#amor').textContent)
+                let contribucion = parseInt(document.querySelector('#contribucion').textContent)
+                let finanzas = parseInt(document.querySelector('#finanzas').textContent)
+                let espiritual = parseInt(document.querySelector('#espiritual').textContent)
+                let user_id = parseInt(document.querySelector('#user_id').textContent)
+
+                let crecimiento_personalM = parseInt(document.querySelector('#crecimiento_personalM').textContent) 
+                let negocios_estudiosM = parseInt(document.querySelector('#negocios_estudiosM').textContent)
+                let familiaM = parseInt(document.querySelector('#familiaM').textContent)
+                let saludM = parseInt(document.querySelector('#saludM').textContent)
+                let amigosM = parseInt(document.querySelector('#amigosM').textContent)
+                let recreacion_diversionM = parseInt(document.querySelector('#recreacion_diversionM').textContent)
+                let amorM = parseInt(document.querySelector('#amorM').textContent)
+                let contribucionM = parseInt(document.querySelector('#contribucionM').textContent)
+                let finanzasM = parseInt(document.querySelector('#finanzasM').textContent)
+                let espiritualM = parseInt(document.querySelector('#espiritualM').textContent)
+
+                console.log(crecimiento_personal)
+               const chart = new Chart(document.getElementById("ruedaDeVida"), {
+                    
+                    "type": "radar",
+                    "data": {
+                        "labels": ['Crecimiento Personal', 'Negocios/Estudios', 'Familia', 'Salud', 'Amigos', 'Recreación/Diverción', 'Amor', 'Contribución', 'Finanzas', 'Espiritual'],
+                        "datasets": [{
+                            "label": "En este momento",
+                           "data": [crecimiento_personal, negocios_estudios, familia, 
+                                    salud, recreacion_diversion, amigos, amor, 
+                                    contribucion, finanzas, espiritual],
+                            "fill": true,
+                            "backgroundColor": "rgb( 174, 214, 241, 0.2)",
+                            "borderColor": "rgb( 174, 214, 241 )",
+                            "pointBackgroundColor": "rgb( 174, 214, 241 )",
+                            "pointBorderColor": "#fff",
+                            "pointHoverBackgroundColor": "#fff",
+                            "pointHoverBorderColor": "rgb( 174, 214, 241 )"
+                        },
+                        {
+                            "label": "Mi meta",
+                            "data": [crecimiento_personalM, negocios_estudiosM, familiaM, 
+                                    saludM, recreacion_diversionM, amigosM, amorM, 
+                                    contribucionM, finanzasM, espiritualM],
+                            "fill": true,
+                            "backgroundColor": "rgb( 249, 231, 159, 0.2)",
+                            "borderColor": "rgb( 249, 231, 159 )",
+                            "pointBackgroundColor": "rgb( 249, 231, 159 )",
+                            "pointBorderColor": "#fff",
+                            "pointHoverBackgroundColor": "#fff",
+                            "pointHoverBorderColor": "rgb( 249, 231, 159 )"
+                        },
+                        {   
+                            "label": '\n',
+                            "data": [10,10,10,10,10,10,10,10,10,10],
+                            "fill": false,
+                            "backgroundColor": "transparent",
+                            "borderColor": "transparent",
+                            "pointBackgroundColor": "transparent",
+                            "pointBorderColor": "transparent",
+                            "pointHoverBackgroundColor": "transparent",
+                            "pointHoverBorderColor": "transparent",
+                            "pointHover": false
+                            
+                        }
+                    ]
+                    },
+                    "options": { "elements": { "line": { "tension": 0, "borderWidth": 3 } } }
+                });
+         
+            </script>
+            
+    </body>
+
+</html>
