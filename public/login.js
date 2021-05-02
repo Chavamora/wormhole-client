@@ -32,7 +32,8 @@ var submit = document.querySelector('#submit')
             .catch(error => console.log(error))
             
             console.log('token actual ' + Cookies.get('secret_token'))
-            
+            window.location.href = "/users/perfil";
+
             // $.setCookie(secret_token)
             return false
         })
@@ -41,5 +42,4 @@ var submit = document.querySelector('#submit')
             console.error(error)
         })
 
-        // window.location.href = "/users/perfil";
     }

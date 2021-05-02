@@ -10,18 +10,15 @@ function fetchData() {
         })
         .then(data => {
             console.log(data.data)
-            const html = data.map(materia => {
+            const html = data.map(user => {
                 return `
                 <a class="single" href="#">
                 <div class="flex-table">
                     <div class="flex-item">
-                        <p>${materia.nombre}</p>
+                        <p>${user.name}</p>
                     </div>
                     <div class="flex-item">
-                        <p>${materia.horas_semana}</p>
-                    </div>
-                    <div class="flex-item">
-                        <p>${materia.notas}</p>
+                        <p>${user.email}</p>
                     </div>
                 </div>
                 </a>
@@ -31,6 +28,7 @@ function fetchData() {
             console.log(html)
             document.querySelector('.info')
             .insertAdjacentHTML('beforeend', html) 
+            console.log(data)
         })
         .catch(error => {
             console.log(error)

@@ -35,3 +35,7 @@ app.get('/privacidad', (req, res) => {
     res.render('privacidad', {title: 'Privacidad'})
 })
 
+ app.get('/users/logout', (req, res) => {
+     res.render('logout', {title: 'Cerrando sesión'})
+ })
+
