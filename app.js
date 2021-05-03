@@ -35,3 +35,7 @@ app.get('/privacidad', (req, res) => {
     res.render('privacidad', {title: 'Privacidad'})
 })
 
+app.get('/contacto', (req, res) => {
+    res.render('contacto', {title: 'Contacto'})
+})
+
