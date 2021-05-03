@@ -10,27 +10,15 @@ function fetchData() {
         })
         .then(data => {
             console.log(data.data)
-            const html = data.map(materia => {
+            const html = data.map(user => {
                 return `
-                <a class="single" href="#">
-                <div class="flex-table">
-                    <div class="flex-item">
-                        <p>${materia.nombre}</p>
-                    </div>
-                    <div class="flex-item">
-                        <p>${materia.horas_semana}</p>
-                    </div>
-                    <div class="flex-item">
-                        <p>${materia.notas}</p>
-                    </div>
-                </div>
-                </a>
-                
+                <h1 class="profileName"> ${user.name} </h1>
+                <h2 class="profileEmail"> ${user.email} </h2>
                 `
             }).join("")
             console.log(html)
-            document.querySelector('.info')
-            .insertAdjacentHTML('beforeend', html) 
+            document.querySelector('#profileDescription')
+            .insertAdjacentHTML('afterbegin', html) 
         })
         .catch(error => {
             console.log(error)
