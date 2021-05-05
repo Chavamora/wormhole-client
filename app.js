@@ -3,7 +3,7 @@ const express = require('express');
 // require("./config/passport")(passport)
 //express app
 const app = express();
-var PORT = 5000
+var PORT = process.env.PORT || 5000
 //connect to mongodb
 app.listen(PORT)
 

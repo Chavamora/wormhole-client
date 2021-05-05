@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1,0">
         <title>WomrholePlan | <%= title %></title>
+
         <link rel="stylesheet" href="/styles.css">
         <link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
         
@@ -40,13 +41,13 @@
     </form>
     </div>
     <div id="hobbieDiv">
-        <a href="deporte.html" class="sideBarItem">Deporte</a>
-        <a href="planDeVida.html" class="sideBarItem">Plan de vida</a>
-        <a href="estudio.html" class="sideBarItem">Estudio</a>
-        <a href="estudio.html" class="sideBarItem">Hobbies</a>
-        <a href="agenda.html" class="sideBarItem"> Agenda </a>
-        <a href="blogs.html" class="sideBarItem">publicaciones</a>
-        <a href="ruedaDeVida.html" class="sideBarItem"> Rueda de vida </a>
+        <a href="/users/deporte" class="sideBarItem">Deporte</a>
+        <a href="/users/plan_de_vida" class="sideBarItem">Plan de vida</a>
+        <a href="/users/estudio" class="sideBarItem">Estudio</a>
+        <a href="/users/hobbies" class="sideBarItem">Hobbies</a>
+        <a href="/users/agenda" class="sideBarItem"> Agenda </a>
+        <a href="/users/publicaciones" class="sideBarItem">publicaciones</a>
+        <a href="/users/rueda_de_vida" class="sideBarItem"> Rueda de vida </a>
             
     </div>
 
@@ -57,14 +58,37 @@
                             <div id="profileCover">
                                 <p>Foto de portada</p>
 
-                                    <div id="profilePicture"> 
-                                        </div>
-                                
-                            </div>
+                                    <div id="profilePicture"> </div>
+                                    <div id="profileGradient">
+                                        <div id="profileNameAndFollows">
+                                        <p id="userName"> Chava Mora</p>
+                                        <p class="followInfo">10 Seguidores</p>
+                                        <p class="followInfo">11 Seguidos</p>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div id="profileNav">
+                                    <div id="profileNavList">
+                                    <a class="btn" href="">Publicaciones</a>
+                                    <a class="btn" href="">Hobbies</a>
+                                    <a class="btn" href="">Estudio</a>
+                                    <a class="btn" href="">Publicaciones</a>
+                                    <a class="btn" href="">Metas</a>
+                                    <a class="btn" href="">Rueda De Vida</a>
+                                    </div>
+                                </div>
+                            </div> 
 
-                            <div id="profileDescription">
-                                <h2 class="profileName"> <%= user.name%> </h2>
-                                <input type="text" placeholder="frase" id="profileInput">
+                             <label for="image">Upload Image</label>
+                <input type="file" id="image"
+                       name="image" value="" required></input>
+
+                       <button id="">Enviar</button>
+
+                    
+
+                                
+                                <!-- <input type="text" placeholder="frase" id="profileInput">
                                 <div id="dropdowns">
                                     <div>
                                         <label for="cars">Experiencia:</label>
@@ -100,12 +124,12 @@
                                 <br>
                                 <a href="#" class="button">
                                     <p>¿Qué experiencia quieres compartir?</p>
-                                </a>
+                                </a> -->
 
-                            </div>
-                        </div>
+                            
+                        
                     </div>
-                    <div id="rightBar">
+                    <!-- <div id="rightBar">
     <div class="container_calendar">
         <div class="header_calendar">
             <h1 id="text_day">00</h1>
@@ -167,38 +191,41 @@
     <div id="">
 
     </div>
-</div>
+</div> -->
 
             </div>
             </div>
-            <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-<script src="variables.js"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-<script src="/menu.js"></script>
-<script src="/calendario_script.js"></script>
-<script src="/getPerfil.js"></script>
-<!-- <script src="/rueda_de_vida.js"></script> -->
-<script>
-
-
-//     fetch('https://wormholeplan-api.herokuapp.com/api/users', {
-//   method: 'POST',
-//   headers: {
-//     'Content-Type': 'application/json' 
-//   }, 
-//   body: JSON.stringify({
-//     email: 'elcrack@gmail.com',
-//     name: 'crack',
-//     password: '1234'
-//   })
-// }).then(res => {
-//   return res.json()
-// })
-// .then(data => console.log(data))
-// .catch(error => console.log (error))
-</script>
+            
+<%- include('./partials/footer.ejs') %>
 
     </body>
-
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="../variables.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="/menu.js"></script>
+    <script src="/calendario_script.js"></script>
+    <script src="/fetchPerfilData.js"></script>
+    <script src="/fetchImageData.js"></script>
+    <script src="/postImage.js"></script>
+    <!-- <script src="/rueda_de_vida.js"></script> -->
+    <script>
+    
+    
+    //     fetch('https://wormholeplan-api.herokuapp.com/api/users', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json' 
+    //   }, 
+    //   body: JSON.stringify({
+    //     email: 'elcrack@gmail.com',
+    //     name: 'crack',
+    //     password: '1234'
+    //   })
+    // }).then(res => {
+    //   return res.json()
+    // })
+    // .then(data => console.log(data))
+    // .catch(error => console.log (error))
+    </script>
 </html>

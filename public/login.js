@@ -29,11 +29,15 @@ var submit = document.querySelector('#submit')
     
             res.json()
             .then(body => Cookies.set('secret_token', body.token, { sameSite: 'none', secure: 'true'}))
+            .then(() => {
+                console.log('token actual ' + Cookies.get('secret_token'));
+                window.location.href="/users/perfil"
+            })
+           
             .catch(error => console.log(error))
             
-            console.log('token actual ' + Cookies.get('secret_token'))
             
-            // $.setCookie(secret_token)
+        // $.setCookie(secret_token)
             return false
         })
         .catch(error => {
