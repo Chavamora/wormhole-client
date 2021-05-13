@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WomrholePlan | <%= title %></title>
     <link rel="stylesheet" href="contactCSS.css">
+   <link rel="stylesheet" href="/stylesMain.css">
 </head>
 <body>
     <h1 class="titulo-contact">Contacta con Nosotros</h1>
@@ -27,10 +28,14 @@
                 <input type="text" placeholder="Nombre" name="nombreContacto" id="nombre-contact">
                 <input type="text" placeholder="Direccion de correo electronico" name="correoContacto" id="correo-contact">
                 <input type="text" placeholder="Telefono" name="telefonoContacto" id="telefono-contact">
-                <input type="text" placeholder="Mensaje" name="mensajeContacto" id="mensaje-contact">
-                <input type="submit" value="Enviar">
+                <textarea type="text" placeholder="Mensaje" name="mensajeContacto" id="mensaje-contact"></textarea>
+                <input type="submit" value="Enviar" id="enviar-contact">
             </form>
         </div>
     </div>
+    <div class="footer-contact">
+        <%- include('./partials/footer.ejs') %>
+    </div>
+
 </body>
 </html>

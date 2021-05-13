@@ -1,0 +1,40 @@
+footer {
+    background-color: rgb(44, 44, 44);
+    color: white;
+    padding: 5% 4% 5% 4%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    
+}
+             
+footer p{
+    border-left: rgba(161, 196, 253, 0.664) 5px solid;
+    padding-left: 2em;
+    
+}
+        
+.right-footer {
+    color: white;
+    align-self: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+        
+.icons svg {
+    margin-right: 2em;
+    
+}
+        
+.icons a {
+    color: white;
+}
+        
+footer a {
+    color:rgba(161, 196, 253, 0.664);
+    font-size: 90%;
+}
