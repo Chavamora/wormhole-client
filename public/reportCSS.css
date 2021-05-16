@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+.wallpaper-report{
+    background-image: url('https://images.alphacoders.com/110/thumb-1920-1109082.png'); 
+    background-repeat: no-repeat;
+    background-size: cover;    
+}
+
+.general-report{
+    background-image: linear-gradient(120deg, rgb(161, 196, 253) 0%, rgb(194, 233, 251) 100%);
+    border: 5px solid white;
+    margin: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.titulo-report{
+    margin: 2% 20% 1% 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+

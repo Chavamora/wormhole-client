@@ -39,3 +39,6 @@ app.get('/contacto', (req, res) => {
     res.render('contacto', {title: 'Contacto'})
 })
 
+app.get('/reportes', (req, res) => {
+    res.render('reportes', {title: 'Reportes'})
+})
