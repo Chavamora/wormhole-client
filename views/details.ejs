@@ -1,0 +1,389 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,0">
+        <title>WomrholePlan | <%= title %></title>
+        <link rel="stylesheet" href="/styles.css">
+        <link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
+        
+    </head>
+<body>
+
+    <header>
+    <div id="navContainer">
+        <div id="navLogo">
+            <h1 id="logo">Wormhole Plan</h1>
+        </div>
+        <nav id="navBar">
+            <ul id="navList">
+                <i><a class="navListItem" href="/index"> Inicio </a></i>
+                <i><a class="navListItem" href="/users/perfil"> Mi perfil </a></i>
+                <i><a class="navListItem"  href="#"> Privacidad </a></i>
+                <i><a class="navListItem" href="/users/logout"> Cerrar sesión </a></i>
+            </ul>
+        </nav>
+    </div>
+    <img src="/img/bx-menu-alt-left.svg" class="hamburguer">
+</header>
+
+
+    <div id="tripleItemGrid">
+        <div class="sideBar">
+
+
+    <div id="search" >
+        <label for="search">Buscar amigos</label>
+        <form action="/users/search" method="POST">
+        <input type="search" id="searchInput" name="search">
+    </form>
+    </div>
+    <div id="hobbieDiv">
+        <a href="deporte.html" class="sideBarItem">Deporte</a>
+        <a href="planDeVida.html" class="sideBarItem">Plan de vida</a>
+        <a href="estudio.html" class="sideBarItem">Estudio</a>
+        <a href="hobbies.html" class="sideBarItem">Hobbies</a>
+        <a href="agenda.html" class="sideBarItem"> Agenda </a>
+        <a href="blogs.html" class="sideBarItem">publicaciones</a>
+        <a href="ruedaDeVida.html" class="sideBarItem"> Rueda de vida </a>
+            
+    </div>
+
+</div>
+
+        <div>
+
+
+
+  <div class="info">
+
+
+                
+
+    <div class="details content">
+        <h2><%= user.name %></h2>
+        <div class="content">
+            <p> <%= user.email %> </p>
+            
+        </div>
+        
+        <h2>Materias</h2>
+
+                <div class="flex-table">
+                    <div class="flex-item first">
+                        <p> Materia </p>
+                    </div>
+                    <div class="flex-item first">
+                        <p> Horas por Semana </p>
+                    </div>
+                    <div class="flex-item first">
+                        <p> Notas </p>
+                    </div>
+                </div>
+                <%const userMaterias = materias.filter(materia => materia.user_id == user._id);%>
+
+                <% if (userMaterias.length > 0) { %>
+                    <% userMaterias.forEach(materia => { %>
+
+                    <a class="single" href="/materias/<%= materia._id%>">
+                        <div class="flex-table">
+                            <div class="flex-item">
+                                <p ><%=materia.nombre%></p>
+                            </div>
+                            <div class="flex-item">
+                                <p ><%=materia.horas_semana%></p>
+                            </div>
+                            <div class="flex-item">
+                                <p ><%=materia.horas_semana%></p>
+                            </div>
+                        </div>   
+                    </a>
+                   
+
+                    <% }) %>
+                   
+                <% } else { %>
+                    <p> No hay materias que mostrar ):</p>
+                   
+                <% } %>
+                
+                <h2>Hobbies</h2>
+
+                <div class="flex-table">
+                    <div class="flex-item first">
+                        <p> Hobbie </p>
+                    </div>
+                    <div class="flex-item first">
+                        <p> Descripcion </p>
+                    </div>
+                    <div class="flex-item first">
+                        <p> Notas </p>
+                    </div>
+                </div>
+
+                <%const userHobbies = hobbies.filter(hobbie => hobbie.user_id == user._id);%>
+<% if (userHobbies.length > 0) { %>
+    <% userHobbies.forEach(hobbie => { %>
+        <a class="single " href="/hobbies/<%= hobbie._id%>">
+
+        <div class="flex-table">
+            <div class="flex-item">
+                <p ><%=hobbie.nombre%></p>
+            </div>
+            <div class="flex-item">
+                <p ><%=hobbie.descripcion%></p>
+            </div>
+            <div class="flex-item">
+                <p ><%=hobbie.notas%></p>
+            </div>
+        </div>   
+        </a>
+
+    <% }) %>
+           
+<% } else { %>
+    <p> No hay hobbies que mostrar ):</p>
+   
+<% } %>
+
+<h2>Metas</h2>
+
+                <div class="flex-table">
+                    <div class="flex-item first">
+                        <p> Responsable </p>
+                    </div>
+                    <div class="flex-item first">
+                        <p> Prioridad </p>
+                    </div>
+                    <div class="flex-item first">
+                        <p> estado </p>
+                    </div>
+                    <div class="flex-item first">
+                        <p> fecha de inicio </p>
+                    </div>
+                    <div class="flex-item first">
+                        <p> fecha final </p>
+                    </div>
+                </div>
+          
+                <%const userMetas = metas.filter(meta => meta.user_id == user._id);%>
+
+                <% if (userMetas.length > 0) { %>
+                    <% userMetas.forEach(meta => { %>
+                        <a class="single" href="/metas/<%= meta._id%>">
+                        <div class="flex-table">
+                            <div class="flex-item">
+                                <p ><%=meta.responsable%></p>
+                            </div>
+                            <div class="flex-item">
+                                <p ><%=meta.prioridad%></p>
+                            </div>
+                            <div class="flex-item">
+                                <p ><%=meta.estado%></p>
+                            </div>
+                            <div class="flex-item">
+                                <p ><%=meta.fecha_inicio%></p>
+                            </div>
+                            <div class="flex-item">
+                                <p ><%=meta.fecha_final%></p>
+                            </div>
+                        </div>   
+                        </a>
+                    <% }) %>
+              
+
+                <% } else { %>
+                    <p> No hay metas que mostrar ):</p>
+                
+                <% } %>
+
+                <h2>Deportes</h2>
+
+                            <div class="flex-table">
+                                <div class="flex-item first">
+                                    <p> Nombre </p>
+                                </div>
+                                <div class="flex-item first">
+                                    <p> Ejercicio </p>
+                                </div>
+                                <div class="flex-item first">
+                                    <p> Series </p>
+                                </div>
+                                <div class="flex-item first">
+                                    <p> Desempeño </p>
+                                </div>
+                                <div class="flex-item first">
+                                    <p> Notas </p>
+                                </div>
+                            </div>
+                            <%const userDeportes = deportes.filter(deporte => deporte.user_id == user._id);%>
+
+                            <% if (userDeportes.length> 0) { %>
+                                <% userDeportes.forEach(deporte=> { %>
+                                    <a class="single" href="/deportes/<%= deporte._id%>">
+                                        <div class="flex-table">
+                                            <div class="flex-item">
+                                                <p ><%=deporte.nombre%></p>
+                                            </div>
+                                            <div class="flex-item">
+                                                <p><%=deporte.ejercicio%></p>
+                                            </div>
+                                            <div class="flex-item">
+                                                <p ><%=deporte.series%></p>
+                                            </div>
+                                            <div class="flex-item">
+                                                <p ><%=deporte.desempeño%></p>
+                                            </div>
+                                            <div class="flex-item">
+                                                <p><%=deporte.notas%></p>
+                                            </div>
+                                        </div>   
+                                    </a>
+                                    <% }) %>
+
+                                        <% } else { %>
+                                            <p> No hay deportes que mostrar ):</p>
+                                          
+                                            <% } %>
+
+                                            <h2> publicaciones</h2>
+
+                <div class="flex-table">
+                    <div class="flex-item first">
+                        <p> Titulo </p>
+                    </div>
+                    <div class="flex-item first">
+                        <p> descripcion </p>
+                    </div>
+                    <div class="flex-item first">
+                        <p> Cuerpo </p>
+                    </div>
+                </div>
+                <%const userBlogs = blogs.filter(blog => blog.user_id == user._id);%>
+
+                <% if (userBlogs.length > 0) { %>
+                    <% userBlogs.forEach(blog => { %>
+
+                    <a class="single" href="/blogs/<%= blog._id%>">
+                        <div class="flex-table">
+                            <div class="flex-item">
+                                <p ><%=blog.titulo%></p>
+                            </div>
+                            <div class="flex-item">
+                                <p ><%=blog.descripcion%></p>
+                            </div>
+                            <div class="flex-item">
+                                <p ><%=blog.cuerpo%></p>
+                            </div>
+                        </div>   
+                    </a>
+                   
+
+                    <% }) %>
+                <% } else { %>
+                    <p> No hay publicaciones que mostrar ):</p>
+                <% } %>
+      
+    </div>
+    
+    
+    
+    
+            </div>
+            
+        </div>
+        <div id="rightBar">
+    <div class="container_calendar">
+        <div class="header_calendar">
+            <h1 id="text_day">00</h1>
+            <h5 id="text_month">Null</h5>
+        </div>
+        <div class="body_calendar">
+            <div class="container_details">
+                <div class="detail_1">
+                    <div class="detail">
+                        <div class="circle">
+                            <div class="column"></div>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <div class="circle">
+                            <div class="column"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail_2">
+                    <div class="detail">
+                        <div class="circle">
+                            <div class="column"></div>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <div class="circle">
+                            <div class="column"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container_change_month">
+                <button id="last_month">&lt;</button>
+                <div>
+                    <span id="text_month_02">Null</span>
+                    <span id="text_year">0000</span>
+                </div>
+                <button id="next_month">&gt;</button>
+            </div>
+            <div class="container_weedays">
+                <span class="week_days_item">DOM</span>
+                <span class="week_days_item">LUN</span>
+                <span class="week_days_item">MAR</span>
+                <span class="week_days_item">MÍE</span>
+                <span class="week_days_item">JUE</span>
+                <span class="week_days_item">VIE</span>
+                <span class="week_days_item">SÁB</span>
+            </div>
+            <div class="container_days">
+                <span class="week_days_item item_day"></span>
+                
+            </div>
+        </div>
+
+    </div>
+    <input type="text" placeholder="plantillas predeterminadas para mis frases y modelos a seguir"
+        id="plantillas">
+    <div id="">
+
+    </div>
+</div>
+
+
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="/menu.js"></script>
+<script src="/calendario_script.js"></script>
+<!-- <script src="/rueda_de_vida.js"></script> -->
+ 
+
+</body>
+
+<script>
+    const trashcan = document.querySelector('user.delete');
+
+    trashcan.addEventListener('click', (e) => {
+        const endpoint = `/users/${trashcan.dataset.doc}`;
+
+        fetch(endpoint, {
+            method: 'DELETE'
+        })
+        .then((response) => response.json())
+        .then((data) => window.location.href = data.redirect)
+        .catch((err) => console.log(err));
+    })
+</script>
+
+</html>

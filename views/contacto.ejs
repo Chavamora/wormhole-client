@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WomrholePlan | <%= title %></title>
+    <link rel="stylesheet" href="contactCSS.css">
+   <link rel="stylesheet" href="/stylesMain.css">
+</head>
+<body>
+    <h1 class="titulo-contact">Contacta con Nosotros</h1>
+    <div class="general-contact"> 
+        <div class="info-contact">
+            <p>WormHole está aquí para brindarle más información, responder cualquier pregunta que pueda tener y crear una solución efectiva para sus necesidades de instrucción.</p>
+            <h2>Contacto Directo</h2>
+            <p><b>Telefono: </b>(55) 4433 2211 </p>
+            <p><b>Correo: </b><a href="mailto:wormholeplancontact@gmail.com"> wormholeplancontact@gmail.com </a></p>
+            <h2>Contactanos En Nuestras Redes</h2>
+            <p><b>Facebook: </b><a href="https://www.facebook.com/Wormholeplan"> WormHole Plan </a></p>
+            <p><b>Instagram: </b><a href="https://www.instagram.com/wormhole_plan/"> @wormhole_plan </a></p>
+            <p><b>Twitter: </b><a href=""> @Wormhole_plan </a></p>
+            <p><b>Pinterest: </b><a href=""> WormHole Plan </a></p>
+            <p><b>Linkedin: </b><a href="https://www.linkedin.com/company/wormhole-plan/"> WormHole Plan </a></p>
+        </div>
+        <div class="form-contact">
+            <form action="POST">
+                <input type="text" placeholder="Nombre" name="nombreContacto" id="nombre-contact">
+                <input type="text" placeholder="Direccion de correo electronico" name="correoContacto" id="correo-contact">
+                <input type="text" placeholder="Telefono" name="telefonoContacto" id="telefono-contact">
+                <textarea type="text" placeholder="Mensaje" name="mensajeContacto" id="mensaje-contact"></textarea>
+                <input type="submit" value="Enviar" id="enviar-contact">
+            </form>
+        </div>
+    </div>
+    <div class="footer-contact">
+        <%- include('./partials/footer.ejs') %>
+    </div>
+
+</body>
+</html>

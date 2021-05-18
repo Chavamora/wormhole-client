@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WomrholePlan | <%= title %></title>
+    <link rel="stylesheet" href="/reportCSS.css">
+    <link rel="stylesheet" href="/stylesMain.css">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
+    
+</head>
+<body class="wallpaper-report" >
+
+<header>
+<div id="navContainer">
+    <div id="navLogo">
+        <h1 id="logo">Wormhole Plan</h1>
+    </div>
+    <nav id="navBar">
+        <ul id="navList">
+            <i><a class="navListItem" href="/index.html"> Inicio </a></i>
+            <i><a class="navListItem" href="/perfil.html"> Mi perfil </a></i>
+            <i><a class="navListItem"  href="#"> Privacidad </a></i>
+            <i><a class="navListItem" href="#"> Cerrar sesión </a></i>
+        </ul>
+    </nav>
+</div>
+
+</header>
+<div class="general-report">
+    <h1 class="titulo-reportes">Ayuda y Reporte de Errores</h1>
+    <div class="report">
+        <div class="user-data">
+            <img src="https://www.eleconomista.com.mx/__export/1617040370886/sites/eleconomista/img/2021/03/29/amlo_conferencia_29_marzo_reuters.jpg_2118499843.jpg" class="profile-picture"></img>
+            <div class="username"> chavamora
+            </div>
+        </div>
+        <div class="info-reporte">
+            <div class="reporte-tags">
+                <p class="tag bug">BUG</p>
+                <p class="tag solved">SOLVED</p>
+            </div>
+            <h1 class="reporte-titulo">Titulo del reporte</h1>
+            <p class="reporte-cuerpo">Cuerpo del reporte</p>
+            <div class="fechas">
+            <p class="fecha-reporte-creado">creado: 10 de mayo</p>
+            <p class="fecha-reporte-editado">ultima edicion: 14 de mayo</p>
+        </div>
+        </div>
+    </div>
+</div>
+    <div class="footer-contact">
+        <%- include('./partials/footer.ejs') %>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="variables.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="/menu.js"></script>
+    <script src="/calendario_script.js"></script>
+    <script src="/fetchHobbieData.js"></script>
+</body>
+</html>
