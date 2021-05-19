@@ -1,38 +1,130 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,500,600,700&display=swap');
+
+.wrapper{
+  display: inline-flex;
+  background: #fff;
+  height: 100px;
+  width: 400px;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  padding: 20px 15px;
+}
+.wrapper .option{
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0 10px;
+  border: 2px solid lightgrey;
+  transition: all 0.3s ease;
+}
+.wrapper .option .dot{
+  height: 20px;
+  width: 20px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  position: relative;
+}
+.wrapper .option .dot::before{
+  position: absolute;
+  content: "";
+  top: 4px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  background: #0069d9;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(1.5);
+  transition: all 0.3s ease;
+}
+input[type="radio"]{
+  display: none;
+}
+#option-1:checked:checked ~ .option-1,
+#option-2:checked:checked ~ .option-2,
+#option-3:checked:checked ~ .option-3,
+#option-4:checked:checked ~ .option-4{
+  border-color: #0069d9;
+  background: #0069d9;
+}
+#option-1:checked:checked ~ .option-1 .dot,
+#option-2:checked:checked ~ .option-2 .dot,
+#option-3:checked:checked ~ .option-3 .dot,
+#option-4:checked:checked ~ .option-4 .dot{
+  background: #fff;
+}
+#option-1:checked:checked ~ .option-1 .dot::before,
+#option-2:checked:checked ~ .option-2 .dot::before,
+#option-3:checked:checked ~ .option-3 .dot::before,
+#option-4:checked:checked ~ .option-4 .dot::before{
+  opacity: 1;
+  transform: scale(1);
+}
+.wrapper .option span{
+  font-size: 20px;
+  color: #808080;
+}
+#option-1:checked:checked ~ .option-1 span,
+#option-2:checked:checked ~ .option-2 span,
+#option-3:checked:checked ~ .option-3 span,
+#option-4:checked:checked ~ .option-4 span{
+  color: #fff;
+}
+
 
 .wallpaper-report{
-    background-image: url('https://images.alphacoders.com/110/thumb-1920-1109082.png'); 
+    background-image: url('https://images-ext-2.discordapp.net/external/y_r6_bApRA7-Db2Ba9H9ZrySpMUWTViWOcadDfeqgTs/https/images5.alphacoders.com/110/1109171.jpg?width=958&height=617'); 
     background-repeat: no-repeat;
     background-size: cover;    
 }
 
 .general-report{
-    background-image: linear-gradient(120deg, rgba(161, 196, 253, 0.7) 0%, rgba(194, 233, 251, 0.7) 100%);
+    background-image: linear-gradient(120deg, rgba(161, 196, 253, 0.8) 0%, rgba(194, 233, 251, 0.8) 100%);
     border: 5px solid white;
     margin: auto;
     margin-top: 10%;
-    margin-bottom: 10%;
-    width: 80%;
+    margin-bottom: 1%;
     display: flex;
+    width: 80%;
     flex-direction: column;
     align-items: center;
 }
 
 .titulo-reportes{
-    margin: 2% 20% 1% 20%;
+    margin: 2% 20% 2% 20%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 5%;
+
 }
 
-.report {
+.report, .comment, .comment-form{
     display: flex;
     flex-direction: row;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.9);
 }
+
+.comment-form textarea{
+  background-color:transparent;
+}
+
+.comment-form #submit {
+  align-self: flex-end;
+  padding: 0.5%;
+  width: 10%;
+}
+
+
 
 .user-data {
     display: flex;
@@ -55,6 +147,7 @@
     flex-direction: column;
     padding: 1%;
     width: 100%;
+    justify-content: space-between;
 
 }
 
@@ -74,12 +167,12 @@
     margin-right: 5%;
 }
 
-.bug {
- background-color: rgb(253, 97, 97);   
+.report-type {
+ background-color: rgb(255, 145, 145);   
 }
 
-.solved {
-    background-color: rgb(40, 146, 40);
+.platform {
+    background-color: rgb(154, 173, 192);
 }
 
 .fechas {
@@ -91,9 +184,47 @@
     
 }
 
+.comments-div {
+    width: 80%;
+margin: auto;
+}
 
+.comment {
+    border: 5px solid white;
+    margin-top: 2%;
+}
 
+.content {
+    margin: auto;
+    width: 80%;
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
 
+}
+
+#crearReporteForm {
+    font-size: 150%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#crearReporteForm input, textarea {
+    font-size: 90%;
+    padding: 0.5em;
+    margin-bottom: 2%;
+}
+
+#crearReporteForm label {
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+#submit {
+    width: 20%;
+    align-self: center;
+}
 
 
 
