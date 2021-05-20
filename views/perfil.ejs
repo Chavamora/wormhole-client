@@ -26,8 +26,8 @@
             </ul>
         </nav>
     </div>
-    <img src="/img/bx-menu-alt-left.svg" class="hamburguer">
-</header>
+<!-- <svg class="hamburguer" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M4 11H16V13H4zM4 6H20V8H4zM4 18L11 18 11.235 18 11.235 16 11 16 4 16z"></path></svg> -->
+</header> 
 
             <div id="tripleItemGrid">
 
@@ -58,14 +58,14 @@
                             <div id="profileCover">
                                 <p>Foto de portada</p>
 
-                                    <div id="profilePicture"> </div>
+                                    <!-- <div id="profilePicture"> </div>
                                     <div id="profileGradient">
                                         <div id="profileNameAndFollows">
                                         <p id="userName"> Chava Mora</p>
                                         <p class="followInfo">10 Seguidores</p>
                                         <p class="followInfo">11 Seguidos</p>
                                     </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div id="profileNav">
                                     <div id="profileNavList">
@@ -79,15 +79,113 @@
                                 </div>
                             </div> 
 
-                            <!-- <form method="post" enctype="multipart/form-data" action="http://localhost:3000/api/user/image?secret_token=<%=secret_token%>">
                              <label for="image">Upload Image</label>
-                        <input type="file" id="image"
-                       name="image" required></input>
+                                <input type="file" id="image" name="image" value=""  required></input>
+                                <div id="previewImage"></div>
+                                <button type="submit" id="submit" >Enviar</button>
 
-                       <input type="submit" value="enviar">
-                    </form> -->
+                    
+
+                                
+                                <!-- <input type="text" placeholder="frase" id="profileInput">
+                                <div id="dropdowns">
+                                    <div>
+                                        <label for="cars">Experiencia:</label>
+                                        <select name="cars" id="cars" class="dropdowns">
+                                            <option value="volvo">Sé feliz</option>
+                                            <option value="saab">Sigue Luchando</option>
+                                            <option value="mercedes">Hasta el fin</option>
+                                            <option value="audi">Levántate</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="dia">Por dia:</label>
+                                        <select name="dia" id="carss" class="dropdowns">
+                                            <option value="volvo">Semanal</option>
+                                            <option value="saab">Mensual</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <a href="#" class="button">
+                                    <p>¿Qué experiencia quieres compartir?</p>
+                                </a>
+                                <br>
+                                <a href="#" class="button">
+                                    <p>¿Qué experiencia quieres compartir?</p>
+                                </a>
+                                <br>
+                                <a href="#" class="button">
+                                    <p>¿Qué experiencia quieres compartir?</p>
+                                </a>
+                                <br>
+                                <a href="#" class="button">
+                                    <p>¿Qué experiencia quieres compartir?</p>
+                                </a> -->
+
+                            
+                        
                     </div>
+                    <!-- <div id="rightBar">
+    <div class="container_calendar">
+        <div class="header_calendar">
+            <h1 id="text_day">00</h1>
+            <h5 id="text_month">Null</h5>
+        </div>
+        <div class="body_calendar">
+            <div class="container_details">
+                <div class="detail_1">
+                    <div class="detail">
+                        <div class="circle">
+                            <div class="column"></div>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <div class="circle">
+                            <div class="column"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail_2">
+                    <div class="detail">
+                        <div class="circle">
+                            <div class="column"></div>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <div class="circle">
+                            <div class="column"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container_change_month">
+                <button id="last_month">&lt;</button>
+                <div>
+                    <span id="text_month_02">Null</span>
+                    <span id="text_year">0000</span>
+                </div>
+                <button id="next_month">&gt;</button>
+            </div>
+            <div class="container_weedays">
+                <span class="week_days_item">DOM</span>
+                <span class="week_days_item">LUN</span>
+                <span class="week_days_item">MAR</span>
+                <span class="week_days_item">MÍE</span>
+                <span class="week_days_item">JUE</span>
+                <span class="week_days_item">VIE</span>
+                <span class="week_days_item">SÁB</span>
+            </div>
+            <div class="container_days">
+                <span class="week_days_item item_day"></span>
                 
+            </div>
+        </div>
+    </div>
+    <input type="text" placeholder="plantillas predeterminadas para mis frases y modelos a seguir"
+        id="plantillas">
+    <div id="">
+    </div>
+</div> -->
 
             </div>
             </div>
@@ -102,13 +200,26 @@
     <script src="/menu.js"></script>
     <script src="/calendario_script.js"></script>
     <script src="/fetchPerfilData.js"></script>
-    <!-- <script src="/fetchImageData.js"></script>
-    <script src="/postImage.js"></script> -->
-   
+    <script src="/fetchImageData.js"></script>
+    <script src="/postImage.js"></script>
     <!-- <script src="/rueda_de_vida.js"></script> -->
     <script>
     
-
-
+    
+    //     fetch('https://wormholeplan-api.herokuapp.com/api/users', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json' 
+    //   }, 
+    //   body: JSON.stringify({
+    //     email: 'elcrack@gmail.com',
+    //     name: 'crack',
+    //     password: '1234'
+    //   })
+    // }).then(res => {
+    //   return res.json()
+    // })
+    // .then(data => console.log(data))
+    // .catch(error => console.log (error))
     </script>
 </html>
