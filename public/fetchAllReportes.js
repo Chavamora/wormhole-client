@@ -22,7 +22,7 @@ function fetchData() {
             const html = data.map(reporte => {       
                 return `
                 <div class="report">
-            <div class="user-data">
+                    <div class="user-data">
                 <img src="${reporte.url}"
                     class="profile-picture"></img>
                 <div class="username"> ${reporte.name}
