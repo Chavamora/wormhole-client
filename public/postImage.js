@@ -1,40 +1,74 @@
-var submit = document.querySelector('#submit')
-var secret_token = Cookies.get('secret_token')
+// var submit = document.querySelector('#submit')
+// var secret_token = Cookies.get('secret_token')
 
 
-// Select your input type file and store it in a variable
-const input = document.getElementById('image');
 
-// This will upload the file after having read it
-const image_info = {
- image_name: 'hola',
- image_size: 18
-}
+// document.querySelector('#image').addEventListener('change', event => {
+//   handleImageUpload(event)
+//      })
 
-const upload = (file) => {
-  fetch(globalVars.apiEndPoint + '/user/image?secret_token='+ secret_token, { // Your POST endpoint
-    method: 'POST',
-    headers: {
-      // Content-Type may need to be completely **omitted**
-      // or you may need something
-       "Content-Type": "application/json"
-    },
-    body:  JSON.stringify(image_info) // This is your file object
-  }).then(
-    response => response.json() // if the response is a JSON object
-  ).then(
-    success => console.log(success) // Handle the success response object
-  ).catch(
-    error => console.log(error) // Handle the error response object
-  );
-};
+//      const handleImageUpload = event => {
+//       const files = event.target.files
+//       const file = files[0]
+//       const file_name = file.name
+//       const formData = new FormData()
+//       formData.append('myFile', files)
+     
+     
+// fetch(globalVars.apiEndPoint + '/user/image?secret_token='+ secret_token, {
+//          method: 'POST',
+//          body: formData
+//        })
+//        .then(response => response.json())
+//        .then(data => {
+//          console.log(data)
+//        })
+//        .catch(error => {
+//          console.error(error)
+//        })
+//       }
 
-// Event handler executed when a file is selected
-const onSelectFile = () => upload(input.files[0]);
 
-// Add a listener on your input
-// It will be triggered when a file will be selected
-input.addEventListener('change', onSelectFile, false);
+      //  submit.addEventListener("click", fetchData(), false) 
+      //   function postImage() {
+      //   setImagePath = e => {
+      //       let reader = new FileReader() 
+      //       reader.readAsDataURL(e.target.files[0])
+           
+           
+      //       reader.onload = () => {      
+      //        this.setState({        
+      //         queryImage: reader.result      
+      //        },()=> this.postIdentification())    
+      //     }}
+      //   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -48,7 +82,8 @@ input.addEventListener('change', onSelectFile, false);
 
     
 //     const files = event.target.files
-//     file_name = files[0].name
+
+
 //     console.log(files)
 //     console.log(file_name)
 //      const formData = new FormData()

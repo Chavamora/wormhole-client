@@ -1,5 +1,5 @@
 const express = require('express');
-
+var cookieParser = require('cookie-parser');
 // require("./config/passport")(passport)
 //express app
 const app = express();
@@ -10,6 +10,7 @@ app.listen(PORT)
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.get('/', (req,res) => {
     res.render('index', {title: 'inicio'})
@@ -20,7 +21,7 @@ app.get('/users/login', (req, res) => {
 })  
 
 app.get('/users/perfil', (req, res) => {
-    res.render('perfil', {title: 'perfil'})
+    res.render('perfil', {title: 'perfil', secret_token: req.cookies['secret_token']})
 })  
 
 app.get('/users/estudio', (req,res) => {
@@ -37,5 +38,9 @@ app.get('/privacidad', (req, res) => {
 
 app.get('/contacto', (req, res) => {
     res.render('contacto', {title: 'Contacto'})
+})
+
+app.get('/user/faqs', (req, res) => {
+    res.render('faqs', {title: 'Preguntas frecuentes'})
 })
 
