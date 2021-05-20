@@ -25,15 +25,15 @@ function fetchData() {
                 <div class="comment">
 
                     <div class="user-data">
-                        <img src="https://img.wattpad.com/cover/202910761-288-k713693.jpg" class="profile-picture"></img>
+                        <img src="${comentario.url}" class="profile-picture"></img>
                         <div class="username"> ${comentario.name}
                         </div>
                     </div>
                     <div class="info-reporte">
                         <p clas="cuerpo-comentario"> ${comentario.cuerpo} </p>
                         <div class="fechas">
-                        <p class="fecha-reporte-creado">creado: 10 de mayo</p>
-                        <p class="fecha-reporte-editado">ultima edicion: 14 de mayo</p>
+                        <p class="fecha-reporte-creado">${moment(comentario.createdAt, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('YYYY-MM-DD')} a las ${moment(comentario.createdAt, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('HH:mm')}</p> 
+                        <p class="fecha-reporte-editado">Ultima edición: ${moment(comentario.updatedAt, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('YYYY-MM-DD')} a las ${moment(comentario.updatedAt, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('HH:mm')}</p>
                     </div>
 
                 </div>

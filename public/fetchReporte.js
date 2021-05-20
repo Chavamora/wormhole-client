@@ -21,10 +21,11 @@ function fetchData() {
             console.log(data)
             const html =        
                  `
+                 <div class="general-report">
                 <h1 class="titulo-reportes">${data.titulo}</h1>
                 <div class="report">
                     <div class="user-data">
-                        <img src="https://www.eleconomista.com.mx/__export/1617040370886/sites/eleconomista/img/2021/03/29/amlo_conferencia_29_marzo_reuters.jpg_2118499843.jpg"
+                        <img src="${data.url}"
                             class="profile-picture"></img>
                         <div class="username"> ${data.name}
                         </div>
@@ -41,9 +42,29 @@ function fetchData() {
                         </div>
                     </div>
                 </div>
+                
+                </div>
+
+                <div class="comments-div">
+    <div class="comment-form">
+
+        <div class="user-data">
+            <img src="${data.loggedAvatar}" class="profile-picture"></img>
+            <div class="username"> ${data.loggedUserName}
+            </div>
+        </div>
+        <div class="info-reporte">
+            <textarea type="text" id="comment-body" placeholder="Escribe un comentario:" style="resize: none;" rows="5"> </textarea>
+           
+            <input type="submit" value="comentar" id="submit" onclick="postComment()">
+
+        </div>
+    </div>
+</div>
+
                 `
             console.log(html)
-            document.querySelector('.general-report')
+            document.querySelector('.report-comments')
             .insertAdjacentHTML('beforeend', html) 
         })
         .catch(error => {

@@ -44,6 +44,7 @@ function fetchData() {
         .catch(error => console.log(error)) 
         console.log('token actual ' + Cookies.get('secret_token'))
         console.log('11')
+        window.location.href="/reportes"
         return false
     })
 

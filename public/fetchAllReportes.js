@@ -23,9 +23,9 @@ function fetchData() {
                 return `
                 <div class="report">
             <div class="user-data">
-                <img src="https://www.eleconomista.com.mx/__export/1617040370886/sites/eleconomista/img/2021/03/29/amlo_conferencia_29_marzo_reuters.jpg_2118499843.jpg"
+                <img src="${reporte.url}"
                     class="profile-picture"></img>
-                <div class="username"> chavamora
+                <div class="username"> ${reporte.name}
                 </div>
             </div>
             <div class="info-reporte">
