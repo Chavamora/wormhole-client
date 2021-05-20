@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+.wallpaper-report{
+    background-image: url('https://images.alphacoders.com/110/thumb-1920-1109082.pngs'); 
+    background-repeat: no-repeat;
+    background-size: cover;    
+}
+
+.general-report{
+    background-image: linear-gradient(120deg, rgba(161, 196, 253, 0.8) 0%, rgba(194, 233, 251, 0.8) 100%);
+    border: 5px solid white;
+    margin: auto;
+    margin-top: 10%;
+    margin-bottom: 1%;
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.report {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9em;
+}
+
+.user-data {
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+}
+
+.profile-picture {
+    background-color: blueviolet;
+    width: 50px;
+    height: 50px;
+}
+
+.username {
+    align-self: center;
+}
+
+.titulo-tags {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+}
+
+.tag {
+    padding: 0.5%;
+    margin-right: 2%;
+    align-self: center;
+}
+
+.titulo-reportes {
+    padding: 1%;
+}
+
+
+.report-type {
+ background-color: rgb(255, 145, 145);   
+}
+
+.platform {
+    background-color: rgb(154, 173, 192);
+}
+.fechas {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.info-reporte {
+    width: 100%;
+    padding: 1%;
+    display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+.titulo-reportes {
+    width: 100%;
+    
+}
+
+.titulo-tags a{
+    width: 100%;
+}

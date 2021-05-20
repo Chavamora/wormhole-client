@@ -44,3 +44,20 @@ app.get('/user/faqs', (req, res) => {
     res.render('faqs', {title: 'Preguntas frecuentes'})
 })
 
+app.get('/reportesID', (req, res) => {
+    res.render('reporteCompleto', {title: 'Reporte'})
+})
+
+app.get('/reportes', (req, res) => {
+    res.render('reportesListaGeneral', {title: 'Reportes'})
+})
+
+app.get('/nuevo-reporte', (req, res) => {
+    res.render('nuevoReporte', {title: 'Crear Reporte'})
+})
+
+app.get('/reporte/:id', (req, res) => {
+    const id = req.params.id
+    console.log(id)
+    res.render('reporteCompleto', {title: 'reporte', id: id})
+})
