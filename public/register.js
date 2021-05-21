@@ -3,7 +3,10 @@ var submit = document.querySelector('#submit')
 
 submit.addEventListener("click", fetchData(), false) 
 
+
 function fetchData() {
+    document.getElementById('messages').innerHTML = '<p></p>';
+
     var email = document.querySelector('#email').value
     var nombre = document.querySelector('#name').value
     var password = document.querySelector('#password').value
@@ -29,17 +32,19 @@ function fetchData() {
         }, 
         body: JSON.stringify(new_user_info)
     })
-    .then(res => {
-        console.log('Response success!')
-        console.log(typeof res)
-        console.log(res)
-
-        res.json()
-        .then(body => console.log(body))
-        .catch(error => console.log(error))
-
-        return false
-    })
+    .then((response) => response.json())
+    .then((data) => {
+        console.log('Success:', data.errors[0]);
+        const errorArray = data.errors;
+        const html = 
+                `
+                <p class="error"> ${data.errors[0]} </p>
+                `
+            console.log(html)
+            document.querySelector('#messages')
+            .insertAdjacentHTML('beforeend', html) 
+        })
+        console.log(errorStr)
     .catch(error => {
         console.error(":C")
         console.error(error)

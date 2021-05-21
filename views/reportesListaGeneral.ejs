@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WomrholePlan | <%= title %>
+    </title>
+    <link rel="stylesheet" href="/reportesListaCSS.css">
+    <link rel="stylesheet" href="/stylesMain.css">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
+
+</head>
+
+<body class="wallpaper-report">
+
+    <header>
+        <div id="navContainer">
+            <div id="navLogo">
+                <h1 id="logo">Wormhole Plan</h1>
+            </div>
+            <nav id="navBar">
+                <ul id="navList">
+                    <i><a class="navListItem" href="/index.html"> Inicio </a></i>
+                    <i><a class="navListItem" href="/perfil.html"> Mi perfil </a></i>
+                    <i><a class="navListItem" href="#"> Privacidad </a></i>
+                    <i><a class="navListItem" href="#"> Cerrar sesión </a></i>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+
+  
+
+    <div class="general-report">
+       
+        <h1>TITULO</h1>
+        <a class="newReportButton" href="/nuevo-reporte">
+            nuevo reporte
+        </a>
+       
+    </div>
+
+    <div class="footer-contact">
+        <%- include('./partials/footer.ejs') %>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="variables.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="/menu.js"></script>
+    <script src="/calendario_script.js"></script>
+    <script src="/fetchHobbieData.js"></script>
+    <script src="/fetchAllReportes.js"></script>
+</body>
+
+
+</html>
