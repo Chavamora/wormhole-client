@@ -51,7 +51,6 @@ if(usertype == 3) {
                        <div class="reporte-tags">
                            <p class="tag report-type">${tagsArray[0]}</p>
                            <p class="tag platform">${tagsArray[1]}</p> 
-                           <button class="tag add"  id="eliminar" onclick="deleteReport('${data._id}')">Eliminar</button> 
       
 
                        </div>
@@ -66,22 +65,6 @@ if(usertype == 3) {
                
                </div>
 
-               <div class="comments-div">
-   <div class="comment-form">
-
-       <div class="user-data">
-           <img src="${data.loggedAvatar}" class="profile-picture"></img>
-           <div class="username"> ${data.loggedUserName}
-           </div>
-       </div>
-       <div class="info-reporte">
-           <textarea type="text" id="comment-body" placeholder="Escribe un comentario:" style="resize: none;" rows="5"> </textarea>
-          
-           <input type="submit" value="comentar" id="submit" onclick="postComment()">
-
-       </div>
-   </div>
-</div>
 
                `
            console.log(html)
@@ -122,22 +105,7 @@ if(usertype == 3) {
                
                </div>
 
-               <div class="comments-div">
-   <div class="comment-form">
-
-       <div class="user-data">
-           <img src="${data.loggedAvatar}" class="profile-picture"></img>
-           <div class="username"> ${data.loggedUserName}
-           </div>
-       </div>
-       <div class="info-reporte">
-           <textarea type="text" id="comment-body" placeholder="Escribe un comentario:" style="resize: none;" rows="5"> </textarea>
           
-           <input type="submit" value="comentar" id="submit" onclick="postComment()">
-
-       </div>
-   </div>
-</div>
 
                `
            console.log(html)
@@ -229,7 +197,38 @@ function editReporteStatus(status) {
 
 
 
+// <div class="comments-div">
+// <div class="comment-form">
 
+//     <div class="user-data">
+//         <img src="${data.loggedAvatar}" class="profile-picture"></img>
+//         <div class="username"> ${data.loggedUserName}
+//         </div>
+//     </div>
+//     <div class="info-reporte">
+//         <textarea type="text" id="comment-body" placeholder="Escribe un comentario:" style="resize: none;" rows="5"> </textarea>
+       
+//         <input type="submit" value="comentar" id="submit" onclick="postComment()">
 
+//     </div>
+// </div>
+// </div>
+
+{/* <div class="comments-div">
+<div class="comment-form">
+
+    <div class="user-data">
+        <img src="${data.loggedAvatar}" class="profile-picture"></img>
+        <div class="username"> ${data.loggedUserName}
+        </div>
+    </div>
+    <div class="info-reporte">
+        <textarea type="text" id="comment-body" placeholder="Escribe un comentario:" style="resize: none;" rows="5"> </textarea>
+       
+        <input type="submit" value="comentar" id="submit" onclick="postComment()">
+
+    </div>
+</div>
+</div> */}
 
 fetchData()
