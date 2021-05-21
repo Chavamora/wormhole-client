@@ -51,7 +51,6 @@ function fetchData() {
                             <p class="tag report-type">${tagsArray[0]}</p>
                             <p class="tag platform">${tagsArray[1]}</p>
                             <p class="tag platform">${tagsArray[2]}</p>  
-                            <button class="tag add"  id="eliminar" onclick="deleteReport('${data._id}')">Eliminar</button> 
                             <button class="tag add"  id="editar" onclick="location.replace('/reporte/editar/${data._id}')">Editar</button> 
                         </div>
                         <p class="reporte-cuerpo">${data.descripcion}</p>
@@ -64,22 +63,7 @@ function fetchData() {
                 
                 </div>
 
-                <div class="comments-div">
-    <div class="comment-form">
-
-        <div class="user-data">
-            <img src="${data.loggedAvatar}" class="profile-picture"></img>
-            <div class="username"> ${data.loggedUserName}
-            </div>
-        </div>
-        <div class="info-reporte">
-            <textarea type="text" id="comment-body" placeholder="Escribe un comentario:" style="resize: none;" rows="5"> </textarea>
-           
-            <input type="submit" value="comentar" id="submit" onclick="postComment()">
-
-        </div>
-    </div>
-</div>
+                
 
                 `
             console.log(html)
@@ -121,22 +105,7 @@ function fetchData() {
                
                </div>
 
-               <div class="comments-div">
-   <div class="comment-form">
-
-       <div class="user-data">
-           <img src="${data.loggedAvatar}" class="profile-picture"></img>
-           <div class="username"> ${data.loggedUserName}
-           </div>
-       </div>
-       <div class="info-reporte">
-           <textarea type="text" id="comment-body" placeholder="Escribe un comentario:" style="resize: none;" rows="5"> </textarea>
-          
-           <input type="submit" value="comentar" id="submit" onclick="postComment()">
-
-       </div>
-   </div>
-</div>
+            
 
                `
            console.log(html)
@@ -171,22 +140,7 @@ function fetchData() {
                
                </div>
 
-               <div class="comments-div">
-   <div class="comment-form">
-
-       <div class="user-data">
-           <img src="${data.loggedAvatar}" class="profile-picture"></img>
-           <div class="username"> ${data.loggedUserName}
-           </div>
-       </div>
-       <div class="info-reporte">
-           <textarea type="text" id="comment-body" placeholder="Escribe un comentario:" style="resize: none;" rows="5"> </textarea>
-          
-           <input type="submit" value="comentar" id="submit" onclick="postComment()">
-
-       </div>
-   </div>
-</div>
+     
 
                `
            console.log(html)
@@ -249,3 +203,20 @@ function editReporteStatus(status) {
 
 
 fetchData()
+
+{/* <div class="comments-div">
+    <div class="comment-form">
+
+        <div class="user-data">
+            <img src="${data.loggedAvatar}" class="profile-picture"></img>
+            <div class="username"> ${data.loggedUserName}
+            </div>
+        </div>
+        <div class="info-reporte">
+            <textarea type="text" id="comment-body" placeholder="Escribe un comentario:" style="resize: none;" rows="5"></textarea>
+           
+            <input type="submit" value="comentar" id="submit" onclick="postComment()">
+
+        </div>
+    </div>
+</div> */}
