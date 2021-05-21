@@ -7,6 +7,7 @@ var PORT = process.env.PORT || 5000
 //connect to mongodb
 app.listen(PORT)
 
+console.log('listening on ', PORT)
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
@@ -18,6 +19,10 @@ app.get('/', (req,res) => {
 
 app.get('/users/login', (req, res) => {
     res.render('login', {title: 'login'})
+})  
+
+app.get('/users/register', (req, res) => {
+    res.render('register', {title: 'register'})
 })  
 
 app.get('/users/perfil', (req, res) => {
@@ -56,8 +61,18 @@ app.get('/nuevo-reporte', (req, res) => {
     res.render('nuevoReporte', {title: 'Crear Reporte'})
 })
 
+
+app.get('/reporte/editar/:id', (req, res) => {
+    const id = req.params.id
+    console.log(id)
+    res.render('editReport', {title: 'editar reporte', id: id})
+})
+
 app.get('/reporte/:id', (req, res) => {
     const id = req.params.id
     console.log(id)
     res.render('reporteCompleto', {title: 'reporte', id: id})
 })
+
+
+

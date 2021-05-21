@@ -81,11 +81,11 @@ input[type="radio"]{
 }
 
 
-.wallpaper-report{
+/* .wallpaper-report{
     background-image: url('https://images-ext-2.discordapp.net/external/y_r6_bApRA7-Db2Ba9H9ZrySpMUWTViWOcadDfeqgTs/https/images5.alphacoders.com/110/1109171.jpg?width=958&height=617'); 
     background-repeat: no-repeat;
     background-size: cover;    
-}
+} */
 
 .general-report{
     background-image: linear-gradient(120deg, rgba(161, 196, 253, 0.8) 0%, rgba(194, 233, 251, 0.8) 100%);
