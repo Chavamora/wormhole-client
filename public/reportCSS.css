@@ -1,31 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
-
-.wallpaper-report{
-    background-image: url('https://images.alphacoders.com/110/thumb-1920-1109082.png'); 
-    background-repeat: no-repeat;
-    background-size: cover;    
-}
-
-.general-report{
-    background-image: linear-gradient(120deg, rgb(161, 196, 253) 0%, rgb(194, 233, 251) 100%);
-    border: 5px solid white;
-    margin: auto;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    width: 80%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.titulo-report{
-    margin: 2% 20% 1% 20%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 @import url('https://fonts.googleapis.com/css?family=Lato:400,500,600,700&display=swap');
 
 .wrapper{
@@ -114,15 +88,18 @@ input[type="radio"]{
 } */
 
 .general-report{
-    background-image: linear-gradient(120deg, rgba(161, 196, 253, 0.8) 0%, rgba(194, 233, 251, 0.8) 100%);
-    border: 5px solid white;
+    background-color: hsl(216, 47%, 66%);
+
     margin: auto;
     margin-top: 10%;
     margin-bottom: 1%;
     display: flex;
-    width: 80%;
+    width: 60%;
     flex-direction: column;
     align-items: center;
+    -webkit-box-shadow: 0px 3px 14px -5px #000000; 
+box-shadow: 0px 3px 14px -5px #000000;
+border-radius: 5px;
 }
 
 .titulo-reportes{
@@ -133,15 +110,47 @@ input[type="radio"]{
 
 }
 
+.user-data {
+  background-color: hsl(0, 0%, 90%);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+
+}
+
+.general-report .user-data {
+  border-top-left-radius: 0px;
+
+}
+
+
 .report, .comment, .comment-form{
     display: flex;
     flex-direction: row;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 5px;
+
+}
+
+.report {
+  border-top-right-radius: 0px;
+
+}
+
+.comment, .comment-form{
+  -webkit-box-shadow: 0px 3px 14px -5px #000000; 
+  box-shadow: 0px 3px 14px -5px #000000;
+  border-radius: 5px;
+
+ 
 }
 
 .comment-form textarea{
   background-color:transparent;
+  outline: none;
+  border: 2px solid hsl(0, 0%, 90%);
+  border-radius: 20px;
+
 }
 
 .comment-form #submit {
@@ -180,6 +189,7 @@ input[type="radio"]{
 .reporte-tags {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .reporte-titulo {
@@ -188,9 +198,9 @@ input[type="radio"]{
 
 
 .tag {
-    padding: 0.5% 1%;
+    padding: 0.5rem;
     border-radius: 9999em;
-    margin-right: 5%;
+  margin-right: 2%;
 }
 
 .report-type {
@@ -211,12 +221,11 @@ input[type="radio"]{
 }
 
 .comments-div {
-    width: 80%;
+    width: 60%;
 margin: auto;
 }
 
 .comment {
-    border: 5px solid white;
     margin-top: 2%;
 }
 
@@ -251,8 +260,6 @@ margin: auto;
     width: 20%;
     align-self: center;
 }
-
-
 
 
 
