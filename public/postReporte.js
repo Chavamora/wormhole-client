@@ -7,6 +7,7 @@ console.log('2')
 function fetchData() {
     var titulo = document.querySelector('#titulo').value
     var descripcion = document.querySelector('#descripcion').value
+    var user_id = document.querySelector('#user_id').value 
 
     if (document.getElementById('option-1').checked) {
        var tag_value = document.getElementById('option-1').value;
@@ -22,6 +23,7 @@ function fetchData() {
 
     reporte_info = {
         titulo: titulo,
+        usuario: user_id,
         descripcion: descripcion,
         tags: [tag_value, platform_value, 'abierto']
     }
@@ -39,12 +41,22 @@ function fetchData() {
         console.log('Response success!')
         console.log(typeof res)
         console.log(res)
-        res.json()
-        .then(body => console.log(body))
-        .catch(error => console.log(error)) 
-        console.log('token actual ' + Cookies.get('secret_token'))
-        console.log('11')
-        window.location.href="/reportes"
+        
+            res.json()
+            .then(body => {
+                if (body.error) {
+                    console.log(body.error)
+                    alert(body.error)
+                } else {
+                    
+                console.log('token actual ' + Cookies.get('secret_token'))
+                console.log('11')
+                window.location.href="/reportes"  
+                }
+            })
+            
+            .catch(error => console.log(error))   
+        
     })
 
     .catch(error => {

@@ -45,10 +45,6 @@ app.get('/contacto', (req, res) => {
     res.render('contacto', {title: 'Contacto'})
 })
 
-app.get('/user/faqs', (req, res) => {
-    res.render('faqs', {title: 'Preguntas frecuentes'})
-})
-
 app.get('/reportesID', (req, res) => {
     res.render('reporteCompleto', {title: 'Reporte'})
 })
@@ -77,5 +73,4 @@ app.get('/reporte/:id', (req, res) => {
 app.use((req,res) => {
     res.render('404', {title: '404'})
 })
-
 

@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 20rem;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: rgba(161, 196, 253, 0.664) 0%, rgba(194, 233, 251, 0.705) 100%;
+}
+
+p{
+    margin: 4%;
+}
+
+.general-contact{
+    margin: auto;
+    margin-bottom: 10%;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.titulo-contact{
+    margin: 2% 20% 1% 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-contact{
+    margin: 2%;
+    width: 50%; 
+}
+
+.form-contact{
+    margin: 2%;
+    width: 50%;
+    height: 100%;
+}
+
+#nombre-contact{
+    margin: 2%;
+    padding: 1%;
+    width: 93%;
+}
+
+#correo-contact, #telefono-contact{
+    margin: 2%;
+    padding: 1%;
+    width: 43%;
+}
+
+#mensaje-contact{
+    margin: 2%;
+    padding: 1%;
+    padding-bottom: 10em;
+    width: 93%;
+    resize: none;
+    overflow: auto;
+}
+
+#enviar-contact {
+    display: block;
+    text-align: center;
+    
+    background-color: rgb(187, 187, 187);
+    border-radius: 20em;
+    width: 50%;
+    padding: 2%;
+    margin:auto;
+}
+
+#enviar-contact:hover {
+    background-image: linear-gradient(120deg, rgba(161, 196, 253, 0.664) 0%, rgba(194, 233, 251, 0.705) 100%);
+    color: #1C1E26;
+}
