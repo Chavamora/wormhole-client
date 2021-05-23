@@ -1,6 +1,6 @@
 var reporteID = document.querySelector('#reporteID').textContent
 var secret_token = Cookies.get('secret_token')
-let tagsArray = []
+let tagsArray=[]
  function deleteReport(report_id) {
 
     fetch(globalVars.apiEndPoint + '/user/reporte/editar?secret_token='+secret_token+'&reporteID='+report_id, {

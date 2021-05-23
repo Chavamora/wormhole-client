@@ -7,6 +7,7 @@ console.log('2')
 function fetchData() {
     var titulo = document.querySelector('#titulo').value
     var descripcion = document.querySelector('#descripcion').value
+    var user_id = document.querySelector('#user_id').value 
 
     if (document.getElementById('option-1').checked) {
        var tag_value = document.getElementById('option-1').value;
@@ -22,6 +23,7 @@ function fetchData() {
 
     reporte_info = {
         titulo: titulo,
+        usuario: user_id,
         descripcion: descripcion,
         tags: [tag_value, platform_value, 'abierto']
     }
