@@ -41,12 +41,22 @@ function fetchData() {
         console.log('Response success!')
         console.log(typeof res)
         console.log(res)
-        res.json()
-        .then(body => console.log(body))
-        .catch(error => console.log(error)) 
-        console.log('token actual ' + Cookies.get('secret_token'))
-        console.log('11')
-        window.location.href="/reportes"
+        
+            res.json()
+            .then(body => {
+                if (body.error) {
+                    console.log(body.error)
+                    alert(body.error)
+                } else {
+                    
+                console.log('token actual ' + Cookies.get('secret_token'))
+                console.log('11')
+                window.location.href="/reportes"  
+                }
+            })
+            
+            .catch(error => console.log(error))   
+        
     })
 
     .catch(error => {
