@@ -1,0 +1,26 @@
+.not-found {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    width: 50%;
+    margin: auto;
+    padding-top:3%;
+}
+
+.content {
+    display: flex;
+}
+
+#img404{
+    width: 3rem;
+    background-image: url("https://media.tenor.com/images/6699479a98823c70ff48310c313b836a/tenor.gif" );
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 3rem;
+   }
+
+.h1404 {
+    font-size: 5rem;
+    color: hsl(209, 100%, 50%)
+}
