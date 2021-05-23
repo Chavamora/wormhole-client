@@ -74,5 +74,8 @@ app.get('/reporte/:id', (req, res) => {
     res.render('reporteCompleto', {title: 'reporte', id: id})
 })
 
+app.use((req,res) => {
+    res.render('404', {title: '404'})
+})
 
 

@@ -12,7 +12,7 @@ function fetchData() {
             console.log(data.data)
             const html = data.map(user => {
                 return `
-                <img src="${user.profile_picture_url}" id="profilePicture"> </div>
+                <div style="background-image: url('${user.profile_picture_url}');" id="profilePicture"> </div>
                     <div id="profileGradient">
                         <div id="profileNameAndFollows">
                             <p id="userName"> ${user.name} </p>
