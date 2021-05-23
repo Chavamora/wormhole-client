@@ -45,10 +45,6 @@ app.get('/contacto', (req, res) => {
     res.render('contacto', {title: 'Contacto'})
 })
 
-app.get('/user/faqs', (req, res) => {
-    res.render('faqs', {title: 'Preguntas frecuentes'})
-})
-
 app.get('/reportesID', (req, res) => {
     res.render('reporteCompleto', {title: 'Reporte'})
 })
@@ -73,6 +69,5 @@ app.get('/reporte/:id', (req, res) => {
     console.log(id)
     res.render('reporteCompleto', {title: 'reporte', id: id})
 })
-
 
 

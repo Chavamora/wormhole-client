@@ -3,30 +3,19 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1,0">
-        <title>WomrholePlan | 404 </title>
-        <link rel="stylesheet" href="styles.css">
+        <title>WomrholePlan | <%=title%> </title>
+        <link rel="stylesheet" href="/styles.css">
+        <link rel="stylesheet" href="/404.css">
         <link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
         
     </head>
 <body>
-<p>Cambio Helio</p>
-<p>Cambio el pepe </p>
+
     <div class="not-found content">
-        <h2>Ups!,l pagina no encontrada </h2>
+        <h1 class="h1404"> 404 :c </h1>
+        <h2> Ups!, pagina no encontrada </h2>
+        <div id="img404"></div>
     </div>
-    <footer id="contact">
-        <div class="base footer">
-            <p id="registerHere"><a href="">Acerca de</a>
-            <a href="">Contacto</a>
-            <a href="">Privacidad</a>
-            <a href="">Condiciones</a>
-            <a href="">Faq</a></p>
-        </div>
-        <div class="contact-us">
-            <p>Una producción de Leonardo Lopez</p>
-            <p class="brand">WormHole Plan © 2020</p>
-            <p>cambio nuevo</p>
-            <p>otro cambio</p>
-        </div>
-    </footer></body>
+    <%- include('./partials/footer.ejs') %>   
+</body>
 </html>
