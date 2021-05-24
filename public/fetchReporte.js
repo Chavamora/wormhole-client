@@ -38,9 +38,9 @@ function fetchData() {
             const html =        
                  `
                  <div class="general-report">
-                <h1 class="titulo-reportes">${data.titulo}</h1>
-                <p>${data.usuario}</p>
-                <div class="report">
+                    <h1 class="titulo-reportes">${data.titulo}</h1>
+                    <p>${data.usuario}</p>
+                    <div class="report">
                     <div class="user-data">
                         <img src="${data.url}"
                             class="profile-picture"></img>
@@ -64,22 +64,7 @@ function fetchData() {
                 
                 </div>
 
-                <div class="comments-div">
-    <div class="comment-form">
-
-        <div class="user-data">
-            <img src="${data.loggedAvatar}" class="profile-picture"></img>
-            <div class="username"> ${data.loggedUserName}
-            </div>
-        </div>
-        <div class="info-reporte">
-            <textarea type="text" id="comment-body" placeholder="Escribe un comentario:" style="resize: none;" rows="5"></textarea>
-           
-            <input type="submit" value="comentar" id="submit" onclick="postComment()">
-
-        </div>
-    </div>
-</div>
+               
 
                 `
             console.log(html)
@@ -122,22 +107,7 @@ function fetchData() {
                
                </div>
 
-               <div class="comments-div">
-    <div class="comment-form">
-
-        <div class="user-data">
-            <img src="${data.loggedAvatar}" class="profile-picture"></img>
-            <div class="username"> ${data.loggedUserName}
-            </div>
-        </div>
-        <div class="info-reporte">
-            <textarea type="text" id="comment-body" placeholder="Escribe un comentario:" style="resize: none;" rows="5"></textarea>
-           
-            <input type="submit" value="comentar" id="submit" onclick="postComment()">
-
-        </div>
-    </div>
-</div>
+               
             
 
                `
@@ -173,23 +143,7 @@ function fetchData() {
                </div>
                
                </div>
-               <div class="comments-div">
-               <div class="comment-form">
-           
-                   <div class="user-data">
-                       <img src="${data.loggedAvatar}" class="profile-picture"></img>
-                       <div class="username"> ${data.loggedUserName}
-                       </div>
-                   </div>
-                   <div class="info-reporte">
-                       <textarea type="text" id="comment-body" placeholder="Escribe un comentario:" style="resize: none;" rows="5"></textarea>
-                      
-                       <input type="submit" value="comentar" id="submit" onclick="postComment()">
-           
-                   </div>
-               </div>
-           </div>
-     
+               
 
                `
            console.log(html)
