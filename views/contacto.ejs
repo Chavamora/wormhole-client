@@ -27,12 +27,12 @@
             <p><b>Linkedin: </b><a href="https://www.linkedin.com/company/wormhole-plan/"> WormHole Plan </a></p>
         </div>
         <div class="form-contact">
-            <form action="POST">
+            <form action="/send-email" method="POST">
                 <input type="text" placeholder="Nombre" name="nombreContacto" id="nombre-contact">
                 <input type="text" placeholder="Direccion de correo electronico" name="correoContacto" id="correo-contact">
                 <input type="text" placeholder="Telefono" name="telefonoContacto" id="telefono-contact">
                 <textarea type="text" placeholder="Mensaje" name="mensajeContacto" id="mensaje-contact"></textarea>
-                <input type="submit" value="Enviar" id="enviar-contact">
+                <button id="enviar-contact">Enviar</button>
             </form>
         </div>
     </div>
