@@ -12,16 +12,16 @@
 body {
     position: relative;
     min-height: 100vh;
-    padding-bottom: 20rem;
+    padding-bottom: 16rem;
     overflow-x: hidden;
 }
 
 header {
-    z-index: 10;
+    z-index: 10000;
     top: 0;
     width: 100%;
     position: fixed;
-    background-image: linear-gradient(120deg, rgba(161, 196, 253, 0.664) 0%, rgba(194, 233, 251, 0.705) 100%);
+    background-image: linear-gradient(120deg, rgb(161, 196, 253) 100%, rgb(194, 233, 251) 100%);
 }
 
 a {
@@ -83,8 +83,8 @@ i {
 }
 
 .info {
-
-width: 100vw;
+margin-left: 8vw;
+width: 70vw;
 display: flex;
 height: auto;
 flex-direction: column;
@@ -92,6 +92,17 @@ flex-direction: column;
 padding-bottom: 5em;
 margin-bottom: 5em;
 }
+
+.infoPerfil {
+    
+    width: 100vw;
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    
+    padding-bottom: 5em;
+    margin-bottom: 5em;
+    }
 
 .hamburguer {
         background-image: linear-gradient(120deg, rgba(161, 196, 253, 0.664) 0%, rgba(194, 233, 251, 0.705) 100%);
@@ -150,11 +161,34 @@ z-index: 200;
 
 }
 
+#profilePreview {
+    position: absolute;
+width: 10em;
+height: 10em;
+background-color: rgb(202, 202, 202);
+
+border-radius: 10em;
+border: 4px solid white;
+left: 10%;
+right: 0;
+top: 83%;
+text-align: center;
+vertical-align: middle;
+
+z-index: 1000;
+    background-image: url('https://i1.sndcdn.com/avatars-pBwbp4Aazx0rrlAI-x0BYCg-t500x500.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-clip: content-box;
+
+}
+
 .btn {
     position: relative;
     background-color: white;
     color:black;
-    
+    border: none;
 }
 
 .btn::after {
@@ -171,6 +205,11 @@ z-index: 200;
 
 .btn:hover::after {
     transform: scale(1, 1)
+}
+
+.subir-imagen{
+    display: flex;
+    flex-direction: row;
 }
 
 
@@ -264,6 +303,7 @@ color: white;
     width: 100%;
     justify-content: space-around;
     font-family: 'Quicksand', sans-serif;
+    margin-left: 50%;
 }
 
 .navListItem{
@@ -288,7 +328,6 @@ color: white;
     align-items: center;
     width: 20vw;
     height: 90vh;
-    overflow-y: scroll;
     background: linear-gradient(#7F99F5, #506CF5);
     color: #fff;
     transition: transform .3s ease-in-out;
@@ -329,7 +368,7 @@ color: white;
     align-items: center;
     justify-content: space-around;
     height: 100%;
-    overflow-y: scroll;
+    
 
     width: 100%;
 }
@@ -610,7 +649,7 @@ border-collapse: collapse;
 .absolute-center {
     position: absolute;
     left: 50%;
-    transform: translate(-50%,10%);
+    transform: translate(-50%,100%);
 }
 
 .gradient {
@@ -857,7 +896,7 @@ height: 3em;
             height: 100vh;
             width: 50%;
             background-image: linear-gradient(120deg, rgba(161, 196, 253, 0.664) 0%, rgba(194, 233, 251, 0.705) 100%), 
-            url(../img/Logo.png);
+            url('https://cdn.discordapp.com/attachments/744572741210079234/847940041263284254/Logo.png');
             background-position: center;
             text-align: right 20px;
         }
@@ -1090,43 +1129,68 @@ height: 3em;
            color: #506CF5;
         }
 
-footer {
-    background-color: rgb(44, 44, 44);
-    color: white;
-    padding: 5% 4% 5% 4%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    
-}
-             
-footer p{
-    border-left: rgba(161, 196, 253, 0.664) 5px solid;
-    padding-left: 2em;
-    
-}
-        
-.right-footer {
-    color: white;
-    align-self: center;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-}
-        
-.icons svg {
-    margin-right: 2em;
-    
-}
-        
-.icons a {
-    color: white;
-}
-        
 footer a {
-    color:rgba(161, 196, 253, 0.664);
-    font-size: 90%;
+    font-size: 1rem;
+    font-weight: 100;
 }
+
+#image {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+#image + #image-label  {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color:  rgb(161, 196, 253);
+    display: inline-block;
+    
+}
+
+#image:focus + #image-label  ,
+#image + #image-label:hover {
+    background-color: red;
+}
+
+#img-icon{
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.507);
+    color: white;
+    position: absolute;
+    width: 10em;
+    height: 10em;
+    
+    border-radius: 10em;
+    border: 4px solid white;
+    left: 10%;
+    right: 0;
+    top: 83%;
+    text-align: center;
+    vertical-align: middle;
+    
+    z-index: 2000;
+    }
+
+    #cubote{
+        background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    width: 10em;
+    height: 10em;
+    
+    border-radius: 10em;
+    border: 4px solid white;
+    left: 10%;
+    right: 0;
+    top: 83%;
+    text-align: center;
+    vertical-align: middle;
+    
+    z-index: 2000;
+    transition: all 0.5s ease;
+    }
+    

@@ -23,42 +23,51 @@
                 <div class="sideBar">
 
 
-    <div id="search" >
-        <label for="search">Buscar amigos</label>
-        <form action="/users/search" method="POST">
-        <input type="search" id="searchInput" name="search">
-    </form>
-    </div>
-    <div id="hobbieDiv">
+                    <div id="search" >
+                        <label for="search">Buscar amigos</label>
+                        <form action="/users/search" method="POST">
+                            <input type="search" id="searchInput" name="search">
+                        </form>
+                    </div>
+                    <div id="hobbieDiv">
         <a href="/users/deporte" class="sideBarItem">Deporte</a>
         <a href="/users/plan_de_vida" class="sideBarItem">Plan de vida</a>
         <a href="/users/estudio" class="sideBarItem">Estudio</a>
         <a href="/users/hobbies" class="sideBarItem">Hobbies</a>
-        <a href="/users/agenda" class="sideBarItem"> Agenda </a>
+        <!-- <a href="/users/agenda" class="sideBarItem"> Agenda </a>
         <a href="/users/publicaciones" class="sideBarItem">publicaciones</a>
-        <a href="/users/rueda_de_vida" class="sideBarItem"> Rueda de vida </a>        
-    </div>
-</div>
+        <a href="/users/rueda_de_vida" class="sideBarItem"> Rueda de vida </a>  -->     
+                    </div>
+                </div>
                     <div>
-                        <div class="info">
+                        <div class="infoPerfil">
+
                             <div id="profileCover">
                                 <p>Foto de portada</p>
+                                <div id="foto-container"></div>
+                                <div id="img-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="fill:rgb(255, 255, 255); height: 100%;"><path d="M11 15L13 15 13 9 16 9 12 4 8 9 11 9z"></path><path d="M20,18H4v-7H2v7c0,1.103,0.897,2,2,2h16c1.103,0,2-0.897,2-2v-7h-2V18z"></path></svg>
+                                    <input type="file" id="image" name="image" value=""  required></input>
+                                </div>
+                                
+                                <div id="cubote"></div>
                                 </div>
                                 <div id="profileNav">
                                     <div id="profileNavList">
-                                    <a class="btn" href="">Publicaciones</a>
-                                    <a class="btn" href="">Hobbies</a>
-                                    <a class="btn" href="">Estudio</a>
-                                    <a class="btn" href="">Publicaciones</a>
-                                    <a class="btn" href="">Metas</a>
-                                    <a class="btn" href="">Rueda De Vida</a>
+                                    <a class="btn" href="/users/publicaciones">Publicaciones</a>
+                                    <a class="btn" href="/users/hobbies">Hobbies</a>
+                                    <a class="btn" href="/users/estudio">Estudio</a>
+                                    <a class="btn" href="/users/deporte">Deportes</a>
+                                    <a class="btn" href="/users/plan_de_vida">Metas</a>
+                                    <!-- <a class="btn" href="/users/rueda_de_vida">Rueda De Vida</a> -->
                                     </div>
                                 </div>
                             </div> 
-                             <label for="image">Upload Image</label>
-                                <input type="file" id="image" name="image" value=""  required></input>
-                                <div id="previewImage"></div>
-                                <button type="submit" id="submit" >Enviar</button>     
+                            <div class="subir-imagen">
+                                
+                                
+                                <button type="submit" id="submit" >Cambiar</button>
+                            </div>      
                     </div>
             </div>
             </div>
@@ -75,6 +84,19 @@
     <script src="/fetchPerfilData.js"></script>
     <script src="/fetchImageData.js"></script>
     <script src="/postImage.js"></script>
-    <script>
+    <script >
+        document.onreadystatechange = () => {
+        if (document.readyState === 'complete') {
+            let cubote = document.getElementById('cubote')
+            let imgIcon = document.getElementById('img-icon')
+        
+            cubote.addEventListener('mouseover', e => {
+            imgIcon.style.visibility = 'visible'
+        })
+            cubote.addEventListener('mouseout', e => {
+            imgIcon.style.visibility = 'hidden'
+        })        
+       }
+        };
     </script>
 </html>

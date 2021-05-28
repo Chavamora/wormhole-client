@@ -4,7 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1,0">
         <title>WomrholePlan | <%= title %></title>
+        <link rel="stylesheet" href="/stylesMain.css">
         <link rel="stylesheet" href="/styles.css">
+
         <link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
         
     </head>    <body>
@@ -27,21 +29,18 @@
                 </div>    
             </div>
             <div id="box-2">
-                <img src="./img/Logo.png" class="absolute-center">
+                <img src="https://cdn.discordapp.com/attachments/744572741210079234/847940041263284254/Logo.png" class="absolute-center">
                 <div class="flex-column flex-center">
 
-                <h3 class="div-title-logo">WormHole Plan</h3>
                 <a href="/users/login" class="loginBtn"> Iniciar Sesión </a>
                 <a href="/users/register" class="loginBtn"> Registrarme </a>
-               <a href="/privacidad">Privacidad</a>
-               <a href="/contacto">Contacto</a>
                 </div>
 
                 
             </div>
         </div>
         
-
+<%- include('./partials/footer.ejs') %>
         <!-- <script src="js/Login.js"></script> -->
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 

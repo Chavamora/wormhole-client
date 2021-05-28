@@ -8,7 +8,7 @@ var previewSource = ""
 const setPreviewSource = (source) => {
   previewSource = source
   console.log(previewSource)
-  document.getElementById('previewImage').innerHTML = `<img src="${previewSource}"></img>`
+  document.getElementById('foto-container').innerHTML = `<div style="background-image: url('${previewSource}');" id="profilePreview"> </div>`
 
   return previewSource
 }
@@ -63,3 +63,6 @@ const uploadImage = (base64EncodedImage) => {
         return false
     })
 }
+
+
+

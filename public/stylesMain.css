@@ -10,6 +10,13 @@
     font-family: 'Quicksand', sans-serif;
 }
 
+#tripleItemGrid {
+    margin-top: 10vh;    
+    display: flex;
+    flex-direction: row;
+
+}
+
 body {
     position: relative;
     min-height: 100vh;
@@ -26,6 +33,20 @@ header {
     font-family: 'Quicksand', sans-serif;
 }
 
+.hamburguer {
+    background-image: linear-gradient(120deg, rgba(161, 196, 253, 0.664) 0%, rgba(194, 233, 251, 0.705) 100%);
+    position: fixed;
+    top: 80px;
+    left: 30px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    transition: transform .3s ease-in-out;
+}
+
 a {
     text-decoration: none;
     color: rgb(0, 0, 0);
@@ -33,6 +54,7 @@ a {
 
 i {
     text-decoration: none;
+    margin-right: 1rem;
 }
 
 #navContainer {
@@ -104,7 +126,7 @@ footer {
 footer p{
     border-left: rgba(161, 196, 253, 0.664) 5px solid;
     padding-left: 2em;
-    
+    margin: 0%;
 }
         
 .right-footer {
@@ -112,7 +134,21 @@ footer p{
     align-self: center;
     margin: auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.icons{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
         
 .icons svg {
@@ -126,5 +162,152 @@ footer p{
         
 footer a {
     color:rgba(161, 196, 253, 0.664);
-    font-size: 90%;
 }
+
+.container_calendar {
+    width: 220px;
+    height: 550px;
+    /*  background: salmon; */
+    margin: auto; }
+  
+.header_calendar {
+    width: 100%;
+    height: 25%;
+    background: linear-gradient(#7F99F5, #506CF5);
+    border-radius: 15px 15px 0px 0px;
+    display: flex;
+    flex-direction: column; }
+    .header_calendar h1 {
+      margin: 10px 30px 0px 30px;
+      padding: 0px;
+      font-family: Arial;
+      color: white;
+      font-size: 50px; }
+    .header_calendar h5 {
+      margin: 0px 30px;
+      padding: 0px;
+      font-family: Arial;
+      color: white;
+      font-size: 20px; }
+  
+  .body_calendar {
+    width: 100%;
+    height: 55%;
+    background: white;
+    border-radius: 0px 0px 15px 15px; }
+  
+  .container_details {
+    width: 100%;
+    height: 30px;
+    /* background: #000000; */
+    position: relative;
+    top: -13px;
+    display: flex;
+    justify-content: space-between; }
+    .container_details .detail_1, .container_details .detail_2 {
+      width: 70px;
+      height: 100%;
+      /* background: salmon; */
+      display: flex;
+      justify-content: center; }
+      .container_details .detail_1 .detail, .container_details .detail_2 .detail {
+        margin: 0px 2px;
+        width: 10px;
+        height: 100%;
+        /* background:red; */ }
+        .container_details .detail_1 .detail .circle, .container_details .detail_2 .detail .circle {
+          width: 10px;
+          height: 10px;
+          background: #1C1E26;
+          position: relative;
+          top: calc(30px - 10px);
+          border-radius: 50%; }
+          .container_details .detail_1 .detail .circle .column, .container_details .detail_2 .detail .circle .column {
+            width: 80%;
+            height: 30px;
+            background: #ececec;
+            margin: 0px auto;
+            position: relative;
+            top: -22px;
+            border-radius: 5px; }
+  
+  .container_change_month {
+    width: 100%;
+    height: 25px;
+    /* background: gold; */
+    display: flex;
+    justify-content: space-evenly;
+    opacity: 0.7; }
+    .container_change_month div {
+      /* background: firebrick; */
+      height: 20px;
+      margin: auto;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; }
+    .container_change_month button {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-size: 20px;
+      margin: auto 5px;
+      border: none;
+      background: none;
+      cursor: pointer; }
+  
+  .container_weedays {
+    width: 90%;
+    height: 40px;
+    /* background: #fa80725e; */
+    display: flex;
+    margin: 0px auto; }
+    .container_weedays span {
+      color: #506CF5;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 10px;
+      height: 100%;
+      line-height: 2.5; }
+  
+  .week_days_item {
+    display: flex;
+    /* background: firebrick; */
+    margin: auto;
+    width: calc(100% / 7);
+    justify-content: center;
+    cursor: pointer; }
+  
+  .week_days_item:hover {
+    color: #506CF5; }
+  
+  .prev_days {
+    opacity: 0.5; }
+  
+  .container_days {
+    width: 90%;
+    height: auto;
+    /* background: darkcyan; */
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0px auto; }
+    .container_days span {
+      color: #4e4e4e;
+      /* background: #000; */
+      height: 20px;
+      margin: 5px 0px;
+      padding: 0px;
+      font-family: Arial; }
+    .container_days .today {
+      display: flex; }
+    .container_days .today:after {
+      content: "";
+      width: 19px;
+      height: 19px;
+      background: #506CF5;
+      position: absolute;
+      border-radius: 50%;
+      border: 5px solid #506CF5;
+      opacity: 0.6;
+      margin: -5px 0px 0px 1px; }
+
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    
+    }
