@@ -1354,6 +1354,10 @@ footer a {
     border-top: 1px solid rgb(184, 184, 184);
 }
 
+.post-like-button__active{
+    color: rgb(96, 115, 199)
+}
+
 .post-buttons :nth-of-type(3){
     margin-left: auto;
     margin-right: auto;

@@ -99,4 +99,3 @@ const uploadImage = (base64EncodedImage) => {
   }
 
 }
-

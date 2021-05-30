@@ -23,9 +23,8 @@ var submit = document.querySelector('#submit')
             body: JSON.stringify(user_info)
         })
         .then(res => {
-            console.log('Response success!')
-            console.log(typeof res)
-            console.log(res)
+            console.log('Login successful!')
+            console.log(res, res.body)
     
             res.json()
             .then(body => Cookies.set('secret_token', body.token, { sameSite: 'none', secure: 'true'}))
@@ -41,7 +40,7 @@ var submit = document.querySelector('#submit')
             return false
         })
         .catch(error => {
-            console.error(":C")
+            console.error("Error in login")
             console.error(error)
         })
 
