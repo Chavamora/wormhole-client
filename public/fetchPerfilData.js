@@ -16,8 +16,8 @@ function fetchData() {
                     <div id="profileGradient">
                         <div id="profileNameAndFollows">
                             <p id="userName"> ${user.name} </p>
-                            <p class="followInfo">10 Seguidores</p>
-                            <p class="followInfo">11 Seguidos</p>
+                            <p class="followInfo">${user.followers.length} Seguidores</p>
+                            <p class="followInfo">${user.following.length} Seguidos</p>
                         </div>
                     </div>
                 `
