@@ -1,4 +1,4 @@
-
+let nuevoReporteBoton = document.querySelector('.newReportButton')
 
 function fetchData() {
     var secret_token = Cookies.get('secret_token')
@@ -18,8 +18,15 @@ function fetchData() {
 
         
         .then(data => {
-            console.log(data.data)
+            var tipo = data.tipo
+            console.log(tipo)
+            console.log(data)
             const html = data.map(reporte => {       
+                if (reporte.tipo == 1) {
+                    nuevoReporteBoton.remove()
+                } else {
+                    
+                }
                 return `
                 <div class="report">
                     <div class="user-data">

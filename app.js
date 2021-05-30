@@ -37,6 +37,36 @@ app.get('/users/estudio/agregar_materia', (req,res) => {
     res.render('agregarMateria', {title: 'Agregar una Materia'})
 })  
 
+app.get('/users/deporte', (req,res) => {
+    res.render('deporte', {title: 'Deporte'})
+})  
+
+app.get('/users/deporte/agregar_deporte', (req,res) => {
+    res.render('agregarDeporte', {title: 'Agregar una Deporte'})
+})  
+
+app.get('/users/hobbies', (req,res) => {
+    res.render('hobbies', {title: 'Hobbie'})
+})  
+
+app.get('/users/hobbies/agregar_hobbie', (req,res) => {
+    res.render('agregarHobbie', {title: 'Agregar una Hobbie'})
+})  
+
+app.get('/users/plan_de_vida', (req,res) => {
+    res.render('planDeVida', {title: 'Metas'})
+})  
+
+app.get('/users/plan_de_vida/agregar_metas', (req,res) => {
+    res.render('agregarMeta', {title: 'Agregar una Meta'})
+})  
+
+app.get('/users/rueda_de_vida', (req,res) => {
+    res.render('ruedaDeVida', {title: 'Rueda De Vida'})
+})  
+
+
+
 app.get('/privacidad', (req, res) => {
     res.render('privacidad', {title: 'Privacidad'})
 })
@@ -57,6 +87,16 @@ app.get('/nuevo-reporte', (req, res) => {
     res.render('nuevoReporte', {title: 'Crear Reporte'})
 })
 
+app.get('/publicaciones', (req, res) => {
+    res.render('publicaciones', {title: 'publicaciones'})
+})
+
+app.get('/publicaciones/:id', (req, res) => {
+    const id = req.params.id
+    console.log(id)
+    res.render('singlePublicacion', {title: 'publicacion', id: id})
+})
+
 
 app.get('/reporte/editar/:id', (req, res) => {
     const id = req.params.id
@@ -69,6 +109,7 @@ app.get('/reporte/:id', (req, res) => {
     console.log(id)
     res.render('reporteCompleto', {title: 'reporte', id: id})
 })
+
 
 app.use((req,res) => {
     res.render('404', {title: '404'})

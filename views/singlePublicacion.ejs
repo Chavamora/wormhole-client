@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WomrholePlan | <%=title%></title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/stylesMain.css">
+</head>
+<body>
+
+    <%- include('./partials/header.ejs') %>
+
+    <p class="hidden" id="reporteID"><%=id%></p>
+
+    <div class="post-and-comments">
+
+
+
+        
+    <div class="all-comments-container">
+        <div class="post-form">
+            <div class="user-data">
+                <div class="user-picture">
+
+                </div>
+                <div class="user-name">
+
+                </div>
+            </div>
+            <div class="post-inputs">
+                <textarea name="comment" id="comment-body" class="commentTextarea" placeholder="Escribe un comentario"></textarea>
+                <button type="submit" value="comentar" onclick="postComment()">Comentar</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <%- include('./partials/footer.ejs') %>
+
+</body>
+<script>
+    var textarea = document.querySelector('#comment-body');
+
+textarea.addEventListener('keydown', autosize);
+             
+function autosize(){
+  var el = this;
+  setTimeout(function(){
+    el.style.cssText = 'height:auto; padding:1';
+    // for box-sizing other than "content-box" use:
+    // el.style.cssText = '-moz-box-sizing:content-box';
+    el.style.cssText = 'height:' + el.scrollHeight + 'px';
+  },0);
+}
+
+
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <script src="/moment-timezone-with-data.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+        <script src="/variables.js"></script>
+        <script src="/postComment.js"></script>
+    <script src="/getSinglePublicacion.js"></script>
+    <script>
+        function fetchData() {
+    var secret_token = Cookies.get('secret_token')
+    var monthNames = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+
+    fetch(globalVars.apiEndPoint + '/user/comments?secret_token='+secret_token+'&reporteID='+reporteID)
+    
+    
+        .then(response => {
+            console.log(response)
+            if (!response.ok) {
+                throw Error('ERROR')
+            }
+            return response.json()
+        })
+
+
+        
+        .then(data => {
+         date = moment.tz(data.createdAt, "America/Mexico_City");
+            console.log('respuesta: ', data)
+            const html = data.map(comentario => {       
+                return `
+                <div class="post">
+                    <div class="post-info">
+                        <div class="user-picture" style="background-image: url('${comentario.url}'); "></div>
+                        <div>
+                        <div class="user-name">${comentario.name}</div>
+                        <p class="post-date">
+                        ${moment(date, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('YYYY-MM-DD')} a las ${moment(date, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('HH:mm')}
+                        </p>
+                    </div>
+                    </div>
+                    <div class="post-content">
+                        ${comentario.cuerpo}
+                    </div>
+                    <div class="post-buttons">
+                        <a href="#">like</a>
+                        <a href="#">dislike</a>
+                    </div>
+                </div>
+                `
+            }).join("")
+            console.log(html)
+            document.querySelector('.all-comments-container')
+            .insertAdjacentHTML('beforeend', html) 
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
+fetchData()
+    </script>
+</html>
+

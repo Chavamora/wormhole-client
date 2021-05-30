@@ -38,8 +38,9 @@ function fetchData() {
             const html =        
                  `
                  <div class="general-report">
-                <h1 class="titulo-reportes">${data.titulo}</h1>
-                <div class="report">
+                    <h1 class="titulo-reportes">${data.titulo}</h1>
+                    <p>${data.usuario}</p>
+                    <div class="report">
                     <div class="user-data">
                         <img src="${data.url}"
                             class="profile-picture"></img>
@@ -63,7 +64,7 @@ function fetchData() {
                 
                 </div>
 
-                
+               
 
                 `
             console.log(html)
@@ -105,6 +106,7 @@ function fetchData() {
                
                </div>
 
+               
             
 
                `
@@ -139,8 +141,7 @@ function fetchData() {
                </div>
                
                </div>
-
-     
+               
 
                `
            console.log(html)

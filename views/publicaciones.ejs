@@ -1,0 +1,71 @@
+<!-- aqui se despliegan las publicaciones realizadas por el usuario -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WomrholePlan | <%=title%>
+    </title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/stylesMain.css">
+</head>
+
+<body>
+    <%- include('./partials/header.ejs') %>
+        <div class="all-posts-container">
+
+
+            <div class="post-form">
+                <div class="user-picture">
+
+                </div>
+                <div class="post-inputs">
+                    
+                    <textarea type="text" id="postContentInput" placeholder="escribe tu publicacion"></textarea>
+                    <div id="postFoto">
+
+                    </div>
+                    <input id="submitPost" type="submit" value="enviar">
+                </div>
+                <input type="file" id="image" name="image" value=""  required></input>
+                                    <label for="image" id="image-label-post">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);"><path d="M4,5h13v7h2V5c0-1.103-0.897-2-2-2H4C2.897,3,2,3.897,2,5v12c0,1.103,0.897,2,2,2h8v-2H4V5z"></path><path d="M8 11L5 15 16 15 12 9 9 13z"></path><path d="M19 14L17 14 17 17 14 17 14 19 17 19 17 22 19 22 19 19 22 19 22 17 19 17z"></path></svg>
+                                    </label>
+            </div>
+
+
+
+
+            
+        <%- include('./partials/footer.ejs') %>
+
+<script>
+ var textarea = document.querySelector('#postContentInput');
+
+    textarea.addEventListener('keydown', autosize);
+                 
+    function autosize(){
+      var el = this;
+      setTimeout(function(){
+        el.style.cssText = 'height:auto; padding:1';
+        // for box-sizing other than "content-box" use:
+        // el.style.cssText = '-moz-box-sizing:content-box';
+        el.style.cssText = 'height:' + el.scrollHeight + 'px';
+      },0);
+    }
+
+
+    </script>
+  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <script src="/moment-timezone-with-data.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+        <script src="/variables.js"></script>
+    <script src="/postPublicacion.js"></script>
+    <script src="/getPublicaciones.js"></script>
+    </body>
+
+</html>

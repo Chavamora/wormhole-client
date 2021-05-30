@@ -24,7 +24,6 @@ p{
 
 .general-contact{
     margin: auto;
-    margin-bottom: 10%;
     width: 80%;
     display: flex;
     flex-direction: row;
@@ -32,7 +31,7 @@ p{
 }
 
 .titulo-contact{
-    margin: 2% 20% 1% 20%;
+    margin: 8% 20% 1% 20%;
     display: flex;
     flex-direction: column;
     align-items: center;
