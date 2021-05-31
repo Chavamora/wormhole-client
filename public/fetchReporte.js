@@ -10,11 +10,11 @@ console.log('p id =' + reporteID)
 function fetchData() {
     var secret_token = Cookies.get('secret_token')
     var monthNames = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
-   
 
-    fetch(globalVars.apiEndPoint + '/user/reporte?secret_token='+secret_token+'&reporteID='+reporteID)
 
-    
+    fetch(globalVars.apiEndPoint + '/user/reporte?secret_token=' + secret_token + '&reporteID=' + reporteID)
+
+
         .then(response => {
             console.log(response)
             if (!response.ok) {
@@ -24,7 +24,7 @@ function fetchData() {
         })
         .then(data => {
             console.log(data)
-            console.log('data', typeof data,  data)
+            console.log('data', typeof data, data)
             console.log('data.tags: ', data.tags, typeof data.tags)
             console.log('tagsArray ', tagsArray, typeof tagsArray)
             tagsArray = data.tags
@@ -33,10 +33,10 @@ function fetchData() {
 
             //tipo 3 = agente de reportes
             //tipo 4 = gerente de reportes
-            if(data.tipo == 3) {
+            if (data.tipo == 3) {
 
-            const html =        
-                 `
+                const html =
+                    `
                  <div class="general-report">
                     <h1 class="titulo-reportes">${data.titulo}</h1>
                     <p>${data.usuario}</p>
@@ -49,9 +49,7 @@ function fetchData() {
                     </div>
                     <div class="info-reporte">
                         <div class="reporte-tags">
-                            <p class="tag report-type">${tagsArray[0]}</p>
-                            <p class="tag platform">${tagsArray[1]}</p>
-                            <p class="tag platform">${tagsArray[2]}</p>  
+                            <p class="tag platform">${data.status}</p>  
                             <button class="tag add"  id="editar" onclick="location.replace('/reporte/editar/${data._id}')">Editar</button> 
                         </div>
                         <p class="reporte-cuerpo">${data.descripcion}</p>
@@ -67,12 +65,12 @@ function fetchData() {
                
 
                 `
-            console.log(html)
-            document.querySelector('.report-comments')
-            .insertAdjacentHTML('beforeend', html) 
+                console.log(html)
+                document.querySelector('.report-comments')
+                    .insertAdjacentHTML('beforeend', html)
             } else if (usertype == 4) {
-                const html =        
-                `
+                const html =
+                    `
                 <div class="general-report">
                <h1 class="titulo-reportes">${data.titulo}</h1>
                <div class="report">
@@ -84,9 +82,7 @@ function fetchData() {
                    </div>
                    <div class="info-reporte">
                        <div class="reporte-tags">
-                           <p class="tag report-type">${tagsArray[0]}</p>
-                           <p class="tag platform">${tagsArray[1]}</p> 
-                           <p class="tag platform">${tagsArray[2]}</p> 
+                           <p class="tag platform">${data.status}</p> 
 
                            <button class="tag add" value="Abierto" id="abierto" onclick="editReporteStatus('abierto')">Abierto</button> 
                             <button class="tag add" value="En proceso" id="en_proceso" onclick="editReporteStatus('en_proceso')">En Proceso</button> 
@@ -110,12 +106,12 @@ function fetchData() {
             
 
                `
-           console.log(html)
-           document.querySelector('.report-comments')
-           .insertAdjacentHTML('beforeend', html) 
+                console.log(html)
+                document.querySelector('.report-comments')
+                    .insertAdjacentHTML('beforeend', html)
             } else {
-                const html =        
-                `
+                const html =
+                    `
                 <div class="general-report">
                <h1 class="titulo-reportes">${data.titulo}</h1>
                <div class="report">
@@ -144,12 +140,12 @@ function fetchData() {
                
 
                `
-           console.log(html)
-           document.querySelector('.report-comments')
-           .insertAdjacentHTML('beforeend', html) 
+                console.log(html)
+                document.querySelector('.report-comments')
+                    .insertAdjacentHTML('beforeend', html)
             }
         })
-    
+
         .catch(error => {
             console.log(error)
         })
@@ -157,42 +153,32 @@ function fetchData() {
 
 
 function editReporteStatus(status) {
-    const abierto = document.querySelector('#abierto')
-    const en_proceso = document.querySelector('#en_proceso')
-    const en_mantenimiento = document.querySelector('#en_mantenimiento')
-    const resuelto = document.querySelector('#resuelto')
-    
-    if(tagsArray.length > 2) {
-        tagsArray.pop()
-    } else {
-    tagsArray.push(status)
- console.log('click', tagsArray)
- fetch(globalVars.apiEndPoint + '/user/reporte/editar?secret_token='+secret_token+'&reporteID='+reporteID, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    }, 
-    body: JSON.stringify(tagsArray)
-})
+    const newbody = { status }
 
-.then((res) => {
-    console.log('Response success!')
-    console.log(typeof res)
-    console.log(res)
-    res.json()
-    .then(body => console.log(body))
-    .catch(error => console.log(error)) 
-    console.log('token actual ' + Cookies.get('secret_token'))
-    console.log('11')
-    location.reload()
-})
-    }
-    
+    fetch(globalVars.apiEndPoint + '/user/reporte/editar?secret_token=' + secret_token + '&reporteID=' + reporteID, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newbody)
+    })
+        .then((res) => {
+            console.log('Response success!')
+            console.log(typeof res)
+            console.log(res)
+            res.json()
+                .then(body => console.log(body))
+                .catch(error => console.log(error))
+            console.log('token actual ' + Cookies.get('secret_token'))
+            console.log('11')
+            location.reload()
+        })
 
 
 
-    
-      
+
+
+
 }
 
 
