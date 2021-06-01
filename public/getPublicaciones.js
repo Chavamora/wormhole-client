@@ -99,7 +99,7 @@ function fetchData() {
 }
 
 function likeDislikePost() {
-    console.log("ADDING EVENT LISTENER")
+    console.log("ADDING EVENT LISTENER") 
     post_like_elements = document.querySelectorAll('.post-like-button');
     console.log(post_like_elements)
 

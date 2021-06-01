@@ -14,7 +14,7 @@
         
     </head>
     <body>
-
+<p class="hidden" id="userid"><%=id%></p>
         <%- include('./partials/header.ejs') %>
 
 
@@ -34,9 +34,7 @@
         <a href="/users/plan_de_vida" class="sideBarItem">Plan de vida</a>
         <a href="/users/estudio" class="sideBarItem">Estudio</a>
         <a href="/users/hobbies" class="sideBarItem">Hobbies</a>
-        <!-- <a href="/users/agenda" class="sideBarItem"> Agenda </a>
-        <a href="/users/publicaciones" class="sideBarItem">publicaciones</a>
-        <a href="/users/rueda_de_vida" class="sideBarItem"> Rueda de vida </a>  -->     
+            
                     </div>
                 </div>
                     <div>
@@ -45,17 +43,7 @@
                             <div id="profileCover">
                                 <p>Foto de portada</p>
                                 <div id="foto-container"></div>
-                                <!-- <div id="img-icon">
-                                </div> -->
-                                <div class="subir-imagen">
                                 
-                                    <input type="file" id="image" name="image" value=""  required></input>
-                                    <label for="image" id="image-label">
-                                        <svg id="uploadSvg" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="fill:rgb(255, 255, 255); height: 100%;"><path d="M11 15L13 15 13 9 16 9 12 4 8 9 11 9z"></path><path d="M20,18H4v-7H2v7c0,1.103,0.897,2,2,2h16c1.103,0,2-0.897,2-2v-7h-2V18z"></path></svg>
-                                    </label>
-                                </div>      
-                                
-                                <div id="cubote"></div>
                                 </div>
                                 <div id="profileNav">
                                     <div id="profileNavList">
@@ -68,7 +56,6 @@
                                     </div>
                                 </div>
                             </div> 
-                            <button type="submit" id="submit" >Cambiar</button>
 
 
 
@@ -81,43 +68,13 @@
 
     </body>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-    <script src="../variables.js"></script>
+    <script src="/variables.js"></script>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="/menu.js"></script>
     <script src="/calendario_script.js"></script>
-    <script src="/fetchPerfilData.js"></script>
+    <script src="/fetchSearchPerfilData.js"></script>
     <script src="/fetchImageData.js"></script>
-    <script src="/postImage.js"></script>
-    <script >
-  
-            let cubote = document.getElementById('cubote')
-            let imgIcon = document.getElementById('image-label')
-            let uploadSvg = document.getElementById('uploadSvg')
-
-            cubote.addEventListener('mouseover', e => {
-                console.log('1')
-            imgIcon.style.visibility = 'visible'
-            imgIcon.style.zIndex = '2001'
-
-            })
-
-            uploadSvg.addEventListener('mouseover', e => {
-                console.log('1')
-            imgIcon.style.visibility = 'visible'
-
-            })
-
-            imgIcon.addEventListener('mouseout', e => {
-                console.log('2')
-            imgIcon.style.visibility = 'hidden'
-            imgIcon.style.zIndex = '2000'
-
-            })
-
-           
-
-    </script>
     <script src="/buscar.js"></script>
-
+    <script src="/follows.js"></script>
 </html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,0">
+        <title>WomrholePlan | <%= title %></title>
+
+        <link rel="stylesheet" href="/stylesMain.css">
+        <link rel="stylesheet" href="/styles.css">
+        <link rel="stylesheet" href="/404.css">
+
+        <link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
+        
+    </head>
+    <body>
+<p class="hidden" id="busqueda"><%=busqueda%></p>
+        <%- include('./partials/header.ejs') %>
+
+
+
+        <div class="content">
+            <h1 style="align-self: center; margin-bottom: 2em;"> resultados de la búsqueda "<%=busqueda%>"</h1>
+</div>
+
+<%- include('./partials/footer.ejs') %>
+
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="/variables.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="/menu.js"></script>
+    <script src="/calendario_script.js"></script>
+
+
+
+<script>
+    var secret_token = Cookies.get('secret_token') 
+
+async function getResultadosBusqueda() {
+ const buscarAmigos = document.querySelector('#busqueda').textContent
+    const resultadoBusqueda = await fetch(globalVars.apiEndPoint + '/users/buscar?secret_token=' + secret_token, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }, 
+        body: JSON.stringify({buscarAmigos})
+    })
+    const res = await resultadoBusqueda.json()
+    console.log('resultados:', res)
+
+
+    const html = res.map(user => {       
+          
+                return `
+                <div class="userCard">
+    <div class="user-picture" style="background-image: url('${user.profile_picture_url}')"></div>
+    
+    <div class="user-info">
+        <p class="username">${user.name}</p>
+        <p class="email">${user.email}</p>
+    </div>
+    <a href="/users/${user._id}" id="ver-perfil"> Ver Perfil </a>
+</div>
+                `
+            }).join("")
+            console.log(html)
+            document.querySelector('.content')
+            .insertAdjacentHTML('beforeend', html) 
+
+} getResultadosBusqueda() 
+
+</script>
+
+</html>

@@ -64,8 +64,15 @@ app.get('/users/plan_de_vida/agregar_metas', (req,res) => {
 app.get('/users/rueda_de_vida', (req,res) => {
     res.render('ruedaDeVida', {title: 'Rueda De Vida'})
 })  
+app.get('/users/buscar/:busqueda', (req,res) => {
+    const busqueda =req.params.busqueda
+    res.render('resultadosBusqueda', {title: 'resultados de la busqueda', busqueda: busqueda})
+}) 
 
-
+app.get('/users/:id', (req,res) => {
+    const id =req.params.id
+    res.render('perfilUser', {title: 'perfil', id: id})
+}) 
 
 app.get('/privacidad', (req, res) => {
     res.render('privacidad', {title: 'Privacidad'})
