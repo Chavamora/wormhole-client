@@ -7,6 +7,7 @@ console.log('2')
 function fetchData() {
     var titulo = document.querySelector('#titulo').value
     var descripcion = document.querySelector('#descripcion').value
+    var user_id = document.querySelector('#user_id').value 
 
     if (document.getElementById('option-1').checked) {
        var tag_value = document.getElementById('option-1').value;
@@ -23,12 +24,13 @@ function fetchData() {
     reporte_info = {
         titulo: titulo,
         descripcion: descripcion,
+        usuario: user_id,
         tags: [tag_value, platform_value, 'abierto']
     }
 
     console.log( JSON.stringify(reporte_info) )
     var secret_token = Cookies.get('secret_token') 
-    fetch(globalVars.apiEndPoint + '/user/reportes?secret_token=' + secret_token, {
+    fetch(globalVars.apiEndPoint + '/user/reporte?secret_token=' + secret_token, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
