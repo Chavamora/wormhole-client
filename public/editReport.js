@@ -49,10 +49,13 @@ function fetchData() {
                    </div>
                    <div class="info-reporte">
                        <div class="reporte-tags">
-      
+                       <p class="tag platform">${data.status}</p> 
+
 
                        </div>
                        <input type="text" class="reporte-cuerpo"  id="descripcion" value="${data.descripcion}"></input>
+                       <p name="solucion" id="solucion" style="margin-top: 2em;">${data.solucion}</p>
+
                        <div class="fechas">
                            <p class="fecha-reporte-creado">Creado en: ${moment(data.createdAt, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('YYYY-MM-DD')} a las ${moment(data.createdAt, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('HH:mm')}</p>
                            <p class="fecha-reporte-editado">Ultima edición: ${moment(data.updatedAt, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('YYYY-MM-DD')} a las ${moment(data.updatedAt, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('HH:mm')}</p>
@@ -62,6 +65,8 @@ function fetchData() {
                </div>
                
                </div>
+
+
 
 
                `
@@ -82,27 +87,24 @@ function fetchData() {
                    </div>
                    <div class="info-reporte">
                        <div class="reporte-tags">
+                       <p class="tag platform">${data.status}</p> 
                            <button class="tag add" value="Abierto" id="abierto" onclick="editReporteStatus('abierto')">Abierto</button> 
                             <button class="tag add" value="En proceso" id="en_proceso" onclick="editReporteStatus('en_proceso')">En Proceso</button> 
                             <button class="tag add" value="En Mantenimiento" id="en_mantenimiento" onclick="editReporteStatus('en_mantenimiento')"> En mantenimiento</button>
-                            <button class="tag add" value="resuelto" id="resuelto" onclick="editReporteStatus('resuelto')"> Resuelto</button>
+                            <button class="tag add" value="resuelto" id="resuelto" onclick="editReporteStatus('resuelto')">Resuelto</button>
                            <button class="tag add"  id="eliminar" onclick="deleteReport('${data._id}')">Eliminar</button> 
-      
-
                        </div>
-                       <input type="text" class="reporte-cuerpo"  id="descripcion" value="${data.descripcion}"></input>
+                       <input type="text" class="reporte-cuerpo"  id="descripcion" value="${data.descripcion}" style="margin-top: 2em;"></input>
+                       <textarea name="solucion" id="solucion" cols="30" rows="5" placeholder="solucion" style="margin-top: 2em;">${data.solucion}</textarea>
                        <div class="fechas">
                            <p class="fecha-reporte-creado">Creado en: ${moment(data.createdAt, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('YYYY-MM-DD')} a las ${moment(data.createdAt, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('HH:mm')}</p>
                            <p class="fecha-reporte-editado">Ultima edición: ${moment(data.updatedAt, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('YYYY-MM-DD')} a las ${moment(data.updatedAt, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('HH:mm')}</p>
-                       </div>
+                           </div>
                    </div>
                    <input type="submit" id="submit" value="guardar cambios" onclick="editReport('${data._id}')"></input>
                </div>
-               
+
                </div>
-
-          
-
                `
                 console.log(html)
                 document.querySelector('.report-comments')
@@ -118,10 +120,12 @@ function fetchData() {
 function editReport(reporte_id) {
     const titulo = document.querySelector('#titulo').value
     const descripcion = document.querySelector('#descripcion').value
+    const solucion = document.querySelector('#solucion').value
 
     const newReport = {
         titulo: titulo,
-        descripcion: descripcion
+        descripcion: descripcion,
+        solucion: solucion,
     }
 
 
@@ -134,20 +138,18 @@ function editReport(reporte_id) {
         body: JSON.stringify(newReport)
     })
 
-        .then((res) => {
-            console.log('Response success!')
-            console.log(typeof res)
-            console.log(res)
-            res.json()
-                .then(body => console.log(body))
-
-                .catch(error => console.log(error))
-            console.log('token actual ' + Cookies.get('secret_token'))
-            console.log('11')
-            window.location.href = '/reportes'
-        })
+    .then((res) => {
+        console.log('Response success!')
+        console.log(typeof res)
+        console.log(res)
+        res.json()
+            .then(body => console.log(body))
+            .catch(error => console.log(error))
+        console.log('token actual ' + Cookies.get('secret_token'))
+        console.log('11')
+        window.location.href = '/reportes'
+    })
 }
-
 
 function editReporteStatus(status) {
     const newbody = { status }

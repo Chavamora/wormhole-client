@@ -38,8 +38,7 @@ function fetchData() {
             <div class="info-reporte">
                 <div class="titulo-tags">
 
-                    <p class="tag report-type">${reporte.tags[0]}</p>
-                    <p class="tag platform">${reporte.tags[1]}</p>
+                    <p class="tag ${reporte.status}" id="All">${reporte.status}</p>
                     <a href="/reporte/${reporte._id}"><p class="titulo-reportes">${reporte.titulo}</p></a>
                 </div>
 
@@ -52,6 +51,7 @@ function fetchData() {
             </div>
         </div>    
                 `
+
             }).join("")
             console.log(html)
             document.querySelector('.general-report')

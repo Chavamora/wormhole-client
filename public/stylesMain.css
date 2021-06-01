@@ -312,3 +312,26 @@ footer a {
         box-sizing: border-box;
     
     }
+
+
+    .tag {
+      padding: 0.5rem;
+      border-radius: 9999em;
+    margin-right: 2%;
+  }
+
+    .abierto {
+      background-color: crimson;
+    }
+    
+    .en_proceso {
+      background-color: darkgoldenrod;
+    }
+    
+    .en_mantenimiento {
+      background-color: rgb(77, 158, 158);
+    }
+    
+    .resuelto {
+      background-color: chartreuse;
+    }

@@ -25,7 +25,6 @@ function fetchData() {
         titulo: titulo,
         descripcion: descripcion,
         usuario: user_id,
-        tags: [tag_value, platform_value, 'abierto']
     }
 
     console.log( JSON.stringify(reporte_info) )

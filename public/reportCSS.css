@@ -198,9 +198,9 @@ border-radius: 5px;
 
 
 .tag {
-    padding: 0.5rem;
-    border-radius: 9999em;
-  margin-right: 2%;
+  padding: 0.5rem;
+  border-radius: 9999em;
+margin-right: 2%;
 }
 
 .report-type {
@@ -260,6 +260,24 @@ margin: auto;
     width: 20%;
     align-self: center;
 }
+
+.abierto {
+  background-color: crimson;
+}
+
+.en_proceso {
+  background-color: darkgoldenrod;
+}
+
+.en_mantenimiento {
+  background-color: rgb(33, 68, 68);
+}
+
+.resuelto {
+  background-color: chartreuse;
+}
+
+
 
 
 

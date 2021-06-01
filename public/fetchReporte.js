@@ -49,10 +49,11 @@ function fetchData() {
                     </div>
                     <div class="info-reporte">
                         <div class="reporte-tags">
-                            <p class="tag platform">${data.status}</p>  
+                            <p class="tag ${data.status}">${data.status}</p>  
                             <button class="tag add"  id="editar" onclick="location.replace('/reporte/editar/${data._id}')">Editar</button> 
                         </div>
                         <p class="reporte-cuerpo">${data.descripcion}</p>
+                        <p class="solucion">solucion: ${data.solucion}</p>
                         <div class="fechas">
                             <p class="fecha-reporte-creado">Creado en: ${moment(data.createdAt, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('YYYY-MM-DD')} a las ${moment(data.createdAt, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('HH:mm')}</p>
                             <p class="fecha-reporte-editado">Ultima edición: ${moment(data.updatedAt, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('YYYY-MM-DD')} a las ${moment(data.updatedAt, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('HH:mm')}</p>
@@ -73,6 +74,7 @@ function fetchData() {
                     `
                 <div class="general-report">
                <h1 class="titulo-reportes">${data.titulo}</h1>
+               <p>${data.usuario}</p>
                <div class="report">
                    <div class="user-data">
                        <img src="${data.url}"
@@ -82,7 +84,7 @@ function fetchData() {
                    </div>
                    <div class="info-reporte">
                        <div class="reporte-tags">
-                           <p class="tag platform">${data.status}</p> 
+                           <p class="tag ${data.status}">${data.status}</p> 
 
                            <button class="tag add" value="Abierto" id="abierto" onclick="editReporteStatus('abierto')">Abierto</button> 
                             <button class="tag add" value="En proceso" id="en_proceso" onclick="editReporteStatus('en_proceso')">En Proceso</button> 
@@ -93,6 +95,7 @@ function fetchData() {
 
                        </div>
                        <p class="reporte-cuerpo">${data.descripcion}</p>
+                       <p class="solucion">solucion: ${data.solucion}</p>
                        <div class="fechas">
                            <p class="fecha-reporte-creado">Creado en: ${moment(data.createdAt, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('YYYY-MM-DD')} a las ${moment(data.createdAt, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('HH:mm')}</p>
                            <p class="fecha-reporte-editado">Ultima edición: ${moment(data.updatedAt, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('YYYY-MM-DD')} a las ${moment(data.updatedAt, moment.HTML5_FMT.DATETIME_LOCAL_MS).format('HH:mm')}</p>
@@ -165,7 +168,7 @@ function editReporteStatus(status) {
         .then((res) => {
             console.log('Response success!')
             console.log(typeof res)
-            console.log(res)
+            console.log(res.json())
             res.json()
                 .then(body => console.log(body))
                 .catch(error => console.log(error))
