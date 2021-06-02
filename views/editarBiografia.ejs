@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,0">
+    <title>WomrholePlan | <%= title %>
+    </title>
+
+    <link rel="stylesheet" href="/stylesMain.css">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/404.css">
+
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
+
+</head>
+
+<body>
+
+    <%- include('./partials/header.ejs') %>
+
+
+        <div id="tripleItemGrid">
+
+            <div class="sideBar">
+
+
+                <div id="search">
+                    <label for="search">Buscar amigos</label>
+
+                    <input type="search" id="searchInput" name="search">
+                    <input type="submit" id="buscar" value="buscar">
+                </div>
+                <div id="hobbieDiv">
+                    <a href="/users/deporte" class="sideBarItem">Deporte</a>
+                    <a href="/users/plan_de_vida" class="sideBarItem">Plan de vida</a>
+                    <a href="/users/estudio" class="sideBarItem">Estudio</a>
+                    <a href="/users/hobbies" class="sideBarItem">Hobbies</a>
+                    <!-- <a href="/users/agenda" class="sideBarItem"> Agenda </a>
+        <a href="/users/publicaciones" class="sideBarItem">publicaciones</a>
+        <a href="/users/rueda_de_vida" class="sideBarItem"> Rueda de vida </a>  -->
+                </div>
+            </div>
+            <div>
+                <div class="infoPerfil">
+
+                    <div id="profileCover">
+                        <p>Foto de portada</p>
+                        <div id="foto-container"></div>
+                        <!-- <div id="img-icon">
+                                </div> -->
+                        <div class="subir-imagen">
+
+                            <input type="file" id="image" name="image" value="" required></input>
+                            <label for="image" id="image-label">
+                                <svg id="uploadSvg" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                                    viewBox="0 0 24 24" style="fill:rgb(255, 255, 255); height: 100%;">
+                                    <path d="M11 15L13 15 13 9 16 9 12 4 8 9 11 9z"></path>
+                                    <path d="M20,18H4v-7H2v7c0,1.103,0.897,2,2,2h16c1.103,0,2-0.897,2-2v-7h-2V18z">
+                                    </path>
+                                </svg>
+                            </label>
+                        </div>
+
+                        <div id="cubote"></div>
+                    </div>
+                    <div id="profileNav">
+                        <div id="profileNavList">
+                            <a class="btn" href="/publicaciones">Publicaciones</a>
+                            <a class="btn" href="/users/hobbies">Hobbies</a>
+                            <a class="btn" href="/users/estudio">Estudio</a>
+                            <a class="btn" href="/users/deporte">Deportes</a>
+                            <a class="btn" href="/users/plan_de_vida">Metas</a>
+                            <!-- <a class="btn" href="/users/rueda_de_vida">Rueda De Vida</a> -->
+                        </div>
+                    </div>
+
+                </div>
+                <div class="frontpage-follows">
+                    <div class="user-frontpage">
+                        <button type="submit" id="submit" class="submit-pfp">Cambiar foto</button>
+
+                        
+                        <input type="submit" value="guardar" id="editarBiografia">
+                    
+
+                    </div>
+                    <div class="user-follows-list">
+                        <h3 style="align-self: flex-start; margin-left: 1em; margin-bottom: 0.7em;">siguiendo</h3>
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+
+        <%- include('./partials/footer.ejs') %>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script src="/variables.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="/menu.js"></script>
+<script src="/calendario_script.js"></script>
+<script src="/fetchImageData.js"></script>
+<script src="/postImage.js"></script>
+<script>
+
+    let cubote = document.getElementById('cubote')
+    let imgIcon = document.getElementById('image-label')
+    let uploadSvg = document.getElementById('uploadSvg')
+
+    cubote.addEventListener('mouseover', e => {
+        console.log('1')
+        imgIcon.style.visibility = 'visible'
+        imgIcon.style.zIndex = '2001'
+
+    })
+
+    uploadSvg.addEventListener('mouseover', e => {
+        console.log('1')
+        imgIcon.style.visibility = 'visible'
+
+    })
+
+    imgIcon.addEventListener('mouseout', e => {
+        console.log('2')
+        imgIcon.style.visibility = 'hidden'
+        imgIcon.style.zIndex = '2000'
+
+    })
+
+
+
+</script>
+<script>
+                            
+
+
+
+
+                        function fetchEditarBiografiaData() {
+    var secret_token = Cookies.get('secret_token')
+    fetch(globalVars.apiEndPoint + '/user/editar?secret_token=' + secret_token)
+        .then(response => {
+            console.log(response)
+            if (!response.ok) {
+                throw Error('ERROR')
+            }
+            return response.json()
+        })
+        .then(data => {
+            console.log(data)
+            const html = data.map(user => {
+                return `
+                <div class="phrase">
+
+                <input id="fraseInput" type="text" value="${user.frase}" style="width: 100%;
+padding: 0.3em;
+font-size: 1.3em;"></input>
+                        </div>
+
+                        <div class="biography">
+                            <h3>biografía</h3>
+                            <textarea id="postContentInput"style="  width: 100%;
+                            resize: none;
+                            overflow: hidden;
+                            min-height: 25px;
+                            padding: 0em 1em;" placeholder="${user.biografia}"></textarea>
+                        </div>
+                `
+            }).join("")
+            
+            console.log(html)
+            document.querySelector('.user-frontpage')
+            .insertAdjacentHTML('afterbegin', html) 
+
+            var textarea = document.querySelector('#postContentInput');
+   
+   textarea.addEventListener('keydown', autosize);
+                
+   function autosize(){
+     var el = this;
+     setTimeout(function(){
+       el.style.cssText = 'height:auto; padding:1';
+       // for box-sizing other than "content-box" use:
+       // el.style.cssText = '-moz-box-sizing:content-box';
+       el.style.cssText = 'height:' + el.scrollHeight + 'px';
+     },0);
+   }
+
+            
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}; 
+fetchEditarBiografiaData()
+
+function fetchData() {
+    var secret_token = Cookies.get('secret_token')
+    fetch(globalVars.apiEndPoint + '/user/perfil?secret_token=' + secret_token)
+        .then(response => {
+            console.log(response)
+            if (!response.ok) {
+                throw Error('ERROR')
+            }
+            return response.json()
+        })
+        .then(data => {
+            console.log(data.data)
+            const html = data.map(user => {
+                return `
+                <div style="background-image: url('${user.profile_picture_url}');" id="profilePicture"> </div>
+                    <div id="profileGradient">
+                        <div id="profileNameAndFollows">
+                            <p id="userName"> ${user.name} </p>
+                            <p class="followInfo">${user.followers.length} Seguidores</p>
+                            <p class="followInfo">${user.following.length} Seguidos</p>
+                        </div>
+                    </div>
+                `
+            }).join("")
+            console.log(html)
+            document.querySelector('#profileCover')
+            .insertAdjacentHTML('beforeend', html) 
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
+
+function fetchFollowsData() {
+    var secret_token = Cookies.get('secret_token')
+    fetch(globalVars.apiEndPoint + '/user/getFollows?secret_token=' + secret_token)
+        .then(response => {
+            console.log(response)
+            if (!response.ok) {
+                throw Error('ERROR')
+            }
+            return response.json()
+        })
+        .then(data => {
+            console.log(data)
+            const html = data.map(user => {
+                return `
+                <div class="followed-user">
+                            <div class="followed-user-picture" style="background-image: url('${user.url}')">
+
+                            </div>
+                            <div class="followed-user-name">
+                                ${user.name}
+                            </div>
+                        </div>
+                `
+            }).join("")
+            console.log(html)
+            document.querySelector('.user-follows-list')
+            .insertAdjacentHTML('beforeend', html) 
+            
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
+
+function fetchBiografiaData() {
+    var secret_token = Cookies.get('secret_token')
+    fetch(globalVars.apiEndPoint + '/user/editar?secret_token=' + secret_token)
+        .then(response => {
+            console.log(response)
+            if (!response.ok) {
+                throw Error('ERROR')
+            }
+            return response.json()
+        })
+        .then(data => {
+            console.log(data)
+            const html = data.map(user => {
+                return `
+                <div class="phrase">
+                <h4> ${user.frase} </h4>
+            </div>
+
+            <div class="biography">
+                <h3>biografía</h3>
+                <p>${user.biografia}
+                </p>
+            </div>
+                `
+            }).join("")
+            console.log(html)
+            document.querySelector('.user-frontpage')
+            .insertAdjacentHTML('afterbegin', html) 
+            
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
+function updateBiografia(biografia) {
+    var secret_token = Cookies.get('secret_token')
+    fetch(globalVars.apiEndPoint + '/user/editar?secret_token=' + secret_token, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }, 
+        body: JSON.stringify({biografia})
+    })
+    .then(res => {
+        console.log('Response success!')
+        console.log(typeof res)
+        console.log(res)
+        
+            res.json()
+            .then(body => {
+                if (body.error) {
+                    console.log(body.error)
+                    alert(body.error)
+                } else {
+                    
+                console.log('token actual ' + Cookies.get('secret_token'))
+                console.log('11')
+                window.location.href="/users/perfil"  
+                }
+            })
+            
+            .catch(error => console.log(error))   
+        
+    })
+
+    .catch(error => {
+        console.error(":C")
+        console.error(error)
+    })
+}
+
+const editar_biografia = document.querySelector('#editarBiografia')
+editar_biografia.addEventListener('click',e => {
+    const content = {
+        biografia:  document.querySelector('#postContentInput').value,
+        frase:  document.querySelector('#fraseInput').value
+    }
+
+    updateBiografia(content)
+})
+
+fetchData()
+fetchFollowsData()
+
+
+</script>
+<script>
+   
+   
+       </script>
+<script src="/buscar.js"></script>
+
+</html>

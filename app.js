@@ -21,6 +21,11 @@ app.get('/users/login', (req, res) => {
     res.render('login', {title: 'login'})
 })  
 
+app.get('/users/faqss', (req, res) => {
+    res.render('faqss', {title: 'faqs'})
+})  
+
+
 app.get('/users/register', (req, res) => {
     res.render('register', {title: 'register'})
 })  
@@ -28,6 +33,24 @@ app.get('/users/register', (req, res) => {
 app.get('/users/perfil', (req, res) => {
     res.render('perfil', {title: 'perfil', secret_token: req.cookies['secret_token']})
 })  
+
+app.get('/users/perfil/editar_biografia', (req, res) => {
+    res.render('editarBiografia', {title: 'editar biografia'})
+})
+
+app.get('/users/faqs', (req, res) => {
+    res.render('preguntas', {title: 'preguntas frecuentes'})
+})  
+
+app.get('/users/faqs/editar', (req, res) => {
+    res.render('preguntasEditar', {title: 'editar preguntas frecuentes'})
+}) 
+
+app.get('/users/faqs/editar/:id', (req, res) => {
+    const id = req.params.id
+    res.render('editarSinglePregunta', {title: 'editar preguntas frecuentes', id: id})
+})  
+
 
 app.get('/users/estudio', (req,res) => {
     res.render('estudio', {title: 'Estudio'})
@@ -97,6 +120,8 @@ app.get('/nuevo-reporte', (req, res) => {
 app.get('/publicaciones', (req, res) => {
     res.render('publicaciones', {title: 'publicaciones'})
 })
+
+
 
 app.get('/publicaciones/:id', (req, res) => {
     const id = req.params.id

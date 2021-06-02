@@ -1,6 +1,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Mate+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap');
 *{
     margin: 0;
@@ -99,9 +101,6 @@ margin-bottom: 5em;
     display: flex;
     height: auto;
     flex-direction: column;
-    
-    padding-bottom: 5em;
-    margin-bottom: 5em;
     }
 
 .hamburguer {
@@ -331,7 +330,7 @@ color: white;
     transition: transform .3s ease-in-out;
     transform: translate(-110%);
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
-    z-index: 300;
+    z-index: 3000;
 }
 
 .spread{
@@ -1258,7 +1257,8 @@ footer a {
     width: 50%;
     margin: auto;
     background-color: white;
-    margin-top: 10em;
+    margin-top: 6.3em;
+padding-top: 4em;
 
 }
 
@@ -1306,7 +1306,7 @@ footer a {
     width: 100%;
     margin: auto;
     background-color: white;
-    margin-top: 10em;
+    margin-top: 6em;
     margin-bottom: 2em;
     align-content: center;
     justify-content: center;
@@ -1449,7 +1449,194 @@ footer a {
     margin-right: 1em;
 }
 
+.user-frontpage {
+    display: flex;
+    width: 60%;
+    margin-left: auto;
+    flex-direction: column;
+    padding-top: 3em;
+}
 
+.user-frontpage > * {
+    display: flex;
+    align-items: center;
+    padding: 1em;
+}
+
+.user-frontpage > * h3 {
+    font-size: 2em;
+    position: relative;
+    margin-right: 1em;
+    font-family: 'Staatliches';
+}
+
+.user-frontpage > * p {
+    position: relative;
+    overflow: hidden;
+    padding: 1em;
+}
+
+.user-frontpage > * p::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    right: 99.5%;
+    height: 100%;
+    background-color: rgb(161, 196, 253);
+    top: 0;
+    transition: all 300ms ease-in-out;
+    z-index: -1;
+}
+
+.user-frontpage > * p:hover::after {
+    right: 0%;
+}
+
+.phrase {
+    align-self:  center;
+    opacity: 0%;
+    transform: translateY(3rem);
+    animation: fadeInUp 0.5s ease forwards;
+    font-size: 1.4em;
+    padding: 0;
+
+}
+
+.phrase::before {
+    content: open-quote;
+    color: rgb(161, 196, 253);
+    font-size: 2em;
+}
+
+.phrase::after {
+    content: close-quote;
+    color: rgb(161, 196, 253);
+    font-size: 2em;
+}
+
+.biography {
+    opacity: 0%;
+    transform: translateX(-20rem);
+    animation: fadeInRight 0.5s ease 0.5s forwards;
+}
+
+.userCard {
+    opacity: 0;
+    transform: translateX(-20rem);
+    animation: fadeInRight 0.8s cubic-bezier(.68,-0.55,.27,1.55) 150ms forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        transform: translateY(0rem);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInRight {
+    to {
+        transform: translateX(0rem);
+        opacity: 1;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.frontpage-follows{
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    padding-bottom: 3em;
+    
+}
+
+.user-follows-list {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 2em;
+    margin-top: 3em;
+    margin-left: 2em;
+    box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 12px 0 15px -4px rgba(0, 0, 0, 0.4), -12px 0 15px -4px rgba(0, 0, 0, 0.4);
+
+}
+
+.followed-user{
+    width: 100%;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    padding: 0.3em 1em;
+}
+
+.followed-user-picture {
+    background-color: rgb(106, 106, 179);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 60px;
+    height: 60px;
+    border-radius: 99999px;
+}
+
+.submit-pfp {
+    width: max-content;
+    position: absolute;
+    display: none;
+}
+
+#editarBiografia {
+    width: max-content;
+    padding: 0.2em;
+    align-self: center;
+    background-color: rgba(161, 196, 253, 0.664);
+    border-radius: 100vh;
+    padding: 0.5em;
+}
 
 #solucion {
+}
+
+.user-frontpage .flex-item {
+    max-width: 100%;
+    overflow: hidden;
+    background-color: #595f6e0c;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    text-align: start;
+    vertical-align: center;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    height: 3em;
+    width: max-content;
+
+}
+
+.user-frontpage .flex-table {
+    display: flex;
+flex-direction: row;
+align-items: center;
+flex: 1;
+margin: 0.5em;
+border-radius: 0.5em;
+flex-wrap: wrap;
+justify-content: flex-start;
+}
+
+.flex-item p {
+    padding: 0em 3em;
+}
+
+.flex-item p::after{
+content: '';
+color: transparent;
+}
+
+.flex-item p:hover::after {
+    right: 100%;
+
 }

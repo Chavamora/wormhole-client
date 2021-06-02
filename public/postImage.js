@@ -22,6 +22,7 @@ input.addEventListener('change', e => {
 })
 const handleFileInputChange = (e) => {
   const file = e.target.files[0]
+  submit.style.display = 'block'
   previewFile(file)
 }
 

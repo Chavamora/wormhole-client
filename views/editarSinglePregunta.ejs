@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesMain.css">
+    <link rel="stylesheet" href="/faqs.css">
+    <title>Preguntas Frecuentes</title>
+</head>
+<div class="sideBar">
+
+
+    <div id="search">
+        <label for="search">Buscar amigos</label>
+
+        <input type="search" id="searchInput" name="search">
+        <input type="submit" id="buscar" value="buscar">
+    </div>
+    <div id="hobbieDiv">
+        <a href="/users/deporte" class="sideBarItem">Deporte</a>
+        <a href="/users/plan_de_vida" class="sideBarItem">Plan de vida</a>
+        <a href="/users/estudio" class="sideBarItem">Estudio</a>
+        <a href="/users/hobbies" class="sideBarItem">Hobbies</a>
+        <!-- <a href="/users/agenda" class="sideBarItem"> Agenda </a>
+<a href="/users/publicaciones" class="sideBarItem">publicaciones</a>
+<a href="/users/rueda_de_vida" class="sideBarItem"> Rueda de vida </a>  -->
+    </div>
+</div>
+<p class="hidden" id="faqID"><%=id%></p>
+
+<body id="page-container">
+
+    <%- include('./partials/header.ejs') %>
+
+
+
+<div id="page-container">
+    <div class="general">
+        <h1 class="titulo">Preguntas Frecuentes </h1>
+        <div class="preguntas">
+
+            
+
+        </div>
+
+    </div>
+
+
+
+    <%- include('./partials/footer.ejs') %>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script src="/variables.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="/menu.js"></script>
+<script src="/updatePregunta.js"></script>
+</html>
