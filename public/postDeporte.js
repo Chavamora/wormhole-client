@@ -40,7 +40,8 @@ function fetchData() {
         .catch(error => console.log(error))
         
         console.log('token actual ' + Cookies.get('secret_token'))
-        
+        window.location.href="/users/deporte"
+
         // $.setCookie(secret_token)
         return false
     })

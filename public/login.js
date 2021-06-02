@@ -37,6 +37,7 @@ var submit = document.querySelector('#submit')
             
             
         // $.setCookie(secret_token)
+        window.location.href ="/users/register"
             return false
         })
         .catch(error => {
