@@ -4,6 +4,8 @@ function fetchData() {
     var secret_token = Cookies.get('secret_token')
     var monthNames = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
 
+
+  
     fetch(globalVars.apiEndPoint + '/user/reportes?secret_token=' + secret_token)
 
     
@@ -22,11 +24,10 @@ function fetchData() {
             console.log(tipo)
             console.log(data)
             const html = data.map(reporte => {       
-                if (reporte.tipo == 1) {
-                    nuevoReporteBoton.remove()
-                } else {
+                // if (reporte.tipo == 1 || reporte.tipo == 2) {
+                // } else {
                     
-                }
+                // }
                 return `
                 <div class="report">
                     <div class="user-data">
@@ -51,13 +52,17 @@ function fetchData() {
             </div>
         </div>    
                 `
-
+            
             }).join("")
             console.log(html)
             document.querySelector('.general-report')
             .insertAdjacentHTML('beforeend', html) 
+        
+            
         })
+    
         .catch(error => {
+            nuevoReporteBoton.remove()
             console.log(error)
         })
 }

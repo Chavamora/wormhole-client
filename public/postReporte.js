@@ -42,19 +42,21 @@ function fetchData() {
         console.log(res)
         
             res.json()
-            .then(body => {
-                if (body.error) {
+            .then(data => {
+                if (data.error) {
+                    alert(data.error)
+
                     console.log(body.error)
-                    alert(body.error)
                 } else {
-                    
+                console.log(data.error)
                 console.log('token actual ' + Cookies.get('secret_token'))
                 console.log('11')
-                window.location.href="/reportes"  
                 }
             })
             
-            .catch(error => console.log(error))   
+            .catch(error => {
+                alert('el id de usuario no se encuentra en la base de datos')
+                console.log(error)})   
         
     })
 
