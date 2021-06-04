@@ -45,7 +45,6 @@ function fetchData() {
             .insertAdjacentHTML('beforeend', html) 
 
         })
-        window.location.href ="/users/register"
 
         console.log(errorStr)
     .catch(error => {
